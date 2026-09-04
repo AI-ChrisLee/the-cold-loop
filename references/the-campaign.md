@@ -10,10 +10,13 @@ Not the read, which takes a minute on Sunday. One true leg beats 3 claimed ones.
 
 ## Connecting Instantly
 
-Instantly's MCP is a **remote hosted server**. It is added as a **custom connector** at
-`https://mcp.instantly.ai/mcp/YOUR_API_KEY`. There is no first-party Connect button for Instantly in
-the connector directory, and any instruction to look for one is wrong. (Apify is in the directory,
-which is why the list beat's connector line is different.)
+Instantly's MCP is a remote hosted server, added as a custom connector at
+`https://mcp.instantly.ai/mcp`. Instantly publishes several ways to authenticate: signing in through
+OAuth is the current one, and pasting the API key into the URL
+(`https://mcp.instantly.ai/mcp/YOUR_API_KEY`) still works but Instantly's own notes call it the legacy
+form. Take whichever one their connector screen offers, and never guess a path you have not seen
+answer. (Apify is in the connector directory, which is why the list beat's connector line is
+different.)
 
 **Never assert a plan tier.** Instantly's help page says the server is free with the subscription
 plus "an account with API access"; the pricing page puts API at a paid tier. The 2 pages disagree, so
@@ -26,7 +29,7 @@ call `workspace_billing_plan_details` and report what the workspace actually has
 | `stop_on_reply` | true | a reply ends the sequence for that person. Nobody gets touch 3 after answering |
 | `text_only` | true | no tracking pixel, no HTML. It is also why there is no open rate |
 | `open_tracking` | false | same reason. Apple and Gmail inflate opens anyway |
-| `daily_limit` | the founder's own by-hand number, never above it | Gate A multiplies nothing. It removes the copy and paste |
+| `daily_limit` | in messages, the unit Instantly counts: the by-hand day's total, about 30 once all 3 cohorts are running, never above what they were already sending by hand | Gate A multiplies nothing. It removes the copy and paste |
 | `email_gap` | spread across the sending window | 30 messages arriving in 4 minutes reads as what it is |
 | the footer | preserved on every step | the postal address and the opt-out do not become optional here |
 
@@ -55,8 +58,12 @@ the number in front of the step.
 
 ## The load, and the word that starts it
 
-**Before every load, call `accounts_test_vitals`, and refuse to load when bounce is over 2%.**
-Sustained bounce over 2% for a few days suppresses placement across the whole domain.
+**Before every load, call `accounts_test_vitals` on the sending address, and refuse to load when its
+domain comes back in the failing list; say which record failed (MX, SPF, DKIM or DMARC).** Once a
+campaign has sent, read that campaign's bounces with `analytics_campaign_overview` and refuse to load
+when bounce is over 2%. Sustained bounce over 2% for a few days suppresses placement across the whole
+domain. On the first load nothing has sent through Instantly yet, so there is no bounce number and the
+DNS check stands as the gate.
 
 **The load is one batch and nothing else.** The approved rows go in as leads through
 `add_leads_to_campaign_or_list_bulk`, each carrying its own broken-thing first line, and the 3

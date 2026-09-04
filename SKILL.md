@@ -5,9 +5,9 @@ description: Use this when the founder is going after strangers. They say "build
 
 # The Cold Loop
 
-Warm Extract talked to people the founder already knew. This one goes at strangers. **Your work,
-in one line: build the 50, write the 3 touches, stamp what went out, read what came back, and
-once the gate opens hand the approved 50 to Instantly's servers.** The founder's part: the cut,
+The Winning Offer, warm, talked to people the founder already knew. This one goes at strangers.
+**Your work, in one line: build the 50, write the 3 touches, stamp what went out, read what came
+back, and once the gate opens hand the approved 50 to Instantly's servers.** The founder's part: the cut,
 any word in the message that is not theirs, their own hand on send, and one change a week.
 
 **You never send.** Not an email, not a draft that leaves the laptop, not a reply. You write and
@@ -135,7 +135,7 @@ for the newest section's cut rule. send: `squad/cold-list.md`,
 | The file | What it means here |
 |---|---|
 | last line carries `confirmed <date>` | WHO gives the trade, the deliverable gives the ask |
-| holds `## THE DRAFT` and no stamp | enough. The draft's who and deliverable lines do the same job |
+| exists, no `confirmed <date>` stamp | enough. Its WHO and deliverable lines do the same job |
 | does not exist | stop in `list` and `send`: there is no ask to make of a stranger yet. Point at G4 (a warm call drafts one) or G5 (the market path). `read` and `routine` run without it, since they only count what already went out |
 
 A cold message never carries a price, in any of the 3 states. The price is the call's, and the
@@ -269,11 +269,11 @@ dates and touch numbers. That sentence runs the stamp on its own, with nothing e
 attached to it. A confirmation typed into chat 5 mornings a week is a ritual, not a record.
 
 **The demo, when a company on the list is worth it.** Outreach needs proof; without proof it is not
-outreach. Hand the company to `/mep` on its cold path, which is the founder saying "build the shell
+outreach. Hand the company to `/mep` on its cold path, which is the founder saying "build the deck
 for <company> off my cold list": the buyer's own words do not exist yet, so that skill builds off the
 row's broken-thing sentence plus what can be seen from outside, each line labeled an observation and
-never a quote. `/mep` writes the shell; this skill writes nothing there.
-When the shell exists, draft the case-study message to that company's competitors **on the same
+never a quote. `/mep` writes the deck; this skill writes nothing there.
+When the deck exists, draft the case-study message to that company's competitors **on the same
 list, as the next batch's first line**, never as a second campaign running beside this one.
 
 **Refuses.** To write a 51st email. To send anything. To draft from an address the founder has not
@@ -284,7 +284,8 @@ named. To write any message with no footer.
 Mode `read`, Sunday. `references/the-numbers.md` runs this beat: the interval, how to say it in
 words, the ladder, and the file's layout. Read it before you print a number.
 
-**Run this read BEFORE `/bip sunday`**, because the weekly post sums numbers that come from here.
+**Run this read BEFORE `/bip sunday`**, so the week's one change is decided before the founder
+writes the week.
 
 **The completeness check, first.** A batch whose last name went out fewer than 9 days ago is
 **unfinished**. Say so and stop: "Your number does not exist yet. Keep sending." Nothing below this
@@ -378,8 +379,9 @@ choose always-allow on every read it asks about, because a task that hits a perm
 have stalls until somebody approves it, and nobody is watching at 9am on a Sunday. On a no, write
 nothing, register nothing, and never offer again.
 
-**Last, hand the founder 4 numbers as text** for `/bip sunday`: `sent N · replies N · calls N ·
-money $N`. Money means cleared. Then stop. You never write `squad/90-day-plan.md`.
+**Last, hand the founder one line for Sunday**: the one change they just agreed to, in their own
+words. `/bip sunday` adds nothing up, so it takes the change, not a total. Then stop. You never write
+`squad/90-day-plan.md`.
 
 ## Beat 5 · THE ROUTINE
 
@@ -402,27 +404,35 @@ a second seat, with its own inbox, runs about $7 to $8 a month and is not needed
 no clients is sending cold from the mailbox their future clients will also email: say that out loud
 rather than pretending the risk is elsewhere.
 
-**5.2, HUMAN INPUT then AUTO: Instantly.** Say the true path. Instantly's MCP is a **remote hosted
-server** added as a **custom connector** at `https://mcp.instantly.ai/mcp/YOUR_API_KEY`. There is no
-first-party Connect button for it in the directory, and any instruction to look for one is wrong.
-Then call `workspace_billing_plan_details` and **report the tier the workspace actually has**. Never
-assert a tier: the help page says the server is free with the subscription plus an account with API
-access, and the pricing page puts API at a paid tier, and those 2 pages disagree. Print the monthly
-total off `references/the-campaign.md` before the founder subscribes to anything.
+**5.2, HUMAN INPUT then AUTO: Instantly.** Instantly's MCP is a remote hosted server, added as a
+custom connector at `https://mcp.instantly.ai/mcp`. Instantly publishes several ways to
+authenticate: signing in through OAuth is the current one, and pasting the API key into the URL
+(`https://mcp.instantly.ai/mcp/YOUR_API_KEY`) still works but Instantly's own notes call it the
+legacy form. Take whichever one their connector screen offers, and never guess a path you have not
+seen answer. Then call `workspace_billing_plan_details` and **report the tier the workspace
+actually has**. Never assert a tier: the help page says the server is free with the subscription
+plus an account with API access, and the pricing page puts API at a paid tier, and those 2 pages
+disagree. Print the monthly total off `references/the-campaign.md` before the founder subscribes to
+anything.
 
 **5.3, AUTO: the campaign, built paused.** `stop_on_reply` true, `text_only` true, `open_tracking`
-false, `daily_limit` set to the founder's own by-hand number and **never above it**, `email_gap`
-spread across the window, the footer preserved on every step. Say out loud that Instantly's own High
-Bounce Auto-Pause does not arm until a campaign has sent 200 emails, so for the first weeks **the
-founder is the brake**. Do not turn on A/Z auto-optimize, and say why: its own documentation states
+false, `daily_limit` set in messages, which is the unit Instantly counts (the by-hand day's total,
+about 30 once all 3 cohorts are running, and never above the number they were already sending by
+hand), `email_gap` spread across the window, the footer preserved on every step. Say out loud that
+Instantly's own High Bounce Auto-Pause does not arm until a campaign has sent 200 emails, so for the
+first weeks **the founder is the brake**. Do not turn on A/Z auto-optimize, and say why: its own documentation states
 no threshold and no minimum sample, so at 25 people an arm it can switch off the better message.
 
 **5.4, STOP · GATE, every week, forever.** The founder pulls the week's list at beat 1, cuts it, and
 approves it before it loads. You cannot remove this beat and you refuse a request to. It is the
 dedup checkpoint and the complaint brake, and it is the reason the send is honest.
 
-**5.5, AUTO: the load.** Call `accounts_test_vitals` first and **refuse to load when bounce is over
-2%**; say the number you read. Then load that batch and nothing else: the approved rows as leads
+**5.5, AUTO: the load.** Call `accounts_test_vitals` on the sending address first and refuse to load
+when its domain comes back in the failing list; say which record failed (MX, SPF, DKIM or DMARC).
+Once a campaign has sent, read that campaign's bounces with `analytics_campaign_overview` and refuse
+to load when bounce is over 2%, saying the number you read. On the first load nothing has sent
+through Instantly yet, so say there is no bounce number yet and let the DNS check stand as the gate.
+Then load that batch and nothing else: the approved rows as leads
 (`add_leads_to_campaign_or_list_bulk`), each carrying its own broken-thing first line, and beat 2's
 3 touches as the campaign's day 1, day 4 and day 9 steps with the footer preserved on every one.
 Never load a row with no `cut <date>` above it, never load a row already in `squad/outreach-sent.md`,

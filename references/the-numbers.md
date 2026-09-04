@@ -103,8 +103,8 @@ The first line: "<verbatim from touch 1>"
 
 ## The order on Sunday
 
-This read runs **before** `/bip sunday`, because the weekly post sums numbers that come from here.
-Hand them over as text at the end: `sent N · replies N · calls N · money $N`. Money means cleared.
-A booked call is not money.
+This read runs **before** `/bip sunday`, so the week's one change is decided before the founder
+writes the week. Hand over that one change as a line, not a total: `/bip sunday` adds nothing up and
+takes only what the founder says.
 
 Never write `squad/90-day-plan.md`. That file's outputs are closed and belong to one skill.

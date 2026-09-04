@@ -1,7 +1,8 @@
 # The Cold Loop: install in 60 seconds
 
-The part of an Execution Squad that goes at strangers. Warm Extract talked to people you already
-knew; this one builds a list of 50 named businesses you have never met, writes the 3 messages each
+The part of an Execution Squad that goes at strangers. The Winning Offer, warm, talked to people
+you already knew; this one builds a list of 50 named businesses you have never met, writes the 3
+messages each
 of them gets, keeps the log that says what actually went out, and on Sunday hands you 2 numbers and
 one change. Once you have finished a batch by hand, it loads the next one into Instantly so the
 sending happens while you sleep, from your own mailbox, on a list you personally approved.
