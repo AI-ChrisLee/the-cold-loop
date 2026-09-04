@@ -13,9 +13,10 @@ campaigns are small because a human picked them, and the same hand wrote the bet
 as support, never as the cause.
 
 One trade and one town so the broken-thing sentence can repeat its shape across the batch and the
-founder learns which shape lands. **It binds the FIRST list only.** From batch 2, say in one line
-that the trade or the town may widen, because a town holds a fixed number of businesses in one trade
-and Gate B needs 2 finished batches.
+founder learns which shape lands. **It binds the FIRST list only.** From batch 2, ask in one line,
+in beat 1's own question and before the pull, whether the trade or the town widens this week,
+because a town holds a fixed number of businesses in one trade, the dedup takes out everyone the
+first pull already got, and Gate B needs 2 finished batches.
 
 Companies under 50 employees answer more than anyone else in the benchmark set, around 7%. Named
 local businesses sit in the friendliest segment there is. Worth saying to a founder who thinks cold

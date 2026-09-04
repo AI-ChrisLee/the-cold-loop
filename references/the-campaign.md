@@ -29,7 +29,7 @@ call `workspace_billing_plan_details` and report what the workspace actually has
 | `stop_on_reply` | true | a reply ends the sequence for that person. Nobody gets touch 3 after answering |
 | `text_only` | true | no tracking pixel, no HTML. It is also why there is no open rate |
 | `open_tracking` | false | same reason. Apple and Gmail inflate opens anyway |
-| `daily_limit` | in messages, the unit Instantly counts: the by-hand day's total, about 30 once all 3 cohorts are running, never above what they were already sending by hand | Gate A multiplies nothing. It removes the copy and paste |
+| `daily_limit` | in messages, the unit Instantly counts: the by-hand day's total once all 3 cohorts are running, never above what they were already sending by hand | Gate A multiplies nothing. It removes the copy and paste |
 | `email_gap` | spread across the sending window | 30 messages arriving in 4 minutes reads as what it is |
 | the footer | preserved on every step | the postal address and the opt-out do not become optional here |
 
@@ -67,7 +67,9 @@ DNS check stands as the gate.
 
 **The load is one batch and nothing else.** The approved rows go in as leads through
 `add_leads_to_campaign_or_list_bulk`, each carrying its own broken-thing first line, and the 3
-touches become the campaign's day 1, day 4 and day 9 steps with the footer on every one. A row with
+touches, read out of `squad/cold-messages-<that batch's cut date>.md`, become the campaign's day 1,
+day 4 and day 9 steps with the footer on every one. No message file for that batch means beat 2
+never finished, and the touches are written there rather than recalled here. A row with
 no `cut <date>` above it does not load. A row already in `squad/outreach-sent.md` does not load.
 Report loaded, dropped as duplicates, and dropped for a missing address.
 

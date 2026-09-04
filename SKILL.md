@@ -8,7 +8,8 @@ description: Use this when the founder is going after strangers. They say "build
 The Winning Offer, warm, talked to people the founder already knew. This one goes at strangers.
 **Your work, in one line: build the 50, write the 3 touches, stamp what went out, read what came
 back, and once the gate opens hand the approved 50 to Instantly's servers.** The founder's part: the cut,
-any word in the message that is not theirs, their own hand on send, and one change a week.
+any word in the message that is not theirs, their own hand on send, and the Sunday line: one
+change, or a named hold.
 
 **You never send.** Not an email, not a draft that leaves the laptop, not a reply. You write and
 you stage; the founder presses send. After Gate A opens, Instantly's servers send the batch the
@@ -32,9 +33,9 @@ field, not an override: the worked-example path stands until this run fills it. 
 
 | Mode | The founder says | Beats |
 |---|---|---|
-| list | "build my outreach list", "pull my list", `/the-cold-loop list` | 0, 1. Weekly, before anything goes out. Once `squad/outreach-routine.md` exists, beat 1's cut IS the weekly approval the load waits on, and you say the load is next |
-| send | "write my cold email", "send this week's batch", "this week's batch went out", `/the-cold-loop send` | 0, 2, 3. Beat 2 once a batch, beat 3 every morning of the week, and "this week's batch went out" is beat 3's weekly stamp on its own. Once `squad/outreach-routine.md` exists, 5.4 to 5.6 replace beat 3: the batch loads instead of printing cohorts to copy |
-| read | "read my batch", "how did the batch do", `/the-cold-loop read` | 0, 4. Sunday, before `/bip sunday` |
+| list | "build my outreach list", "pull my list", `/the-cold-loop list` | 0, 1. The week's Run, usually Monday and Tuesday, before anything goes out. Once `squad/outreach-routine.md` exists, beat 1's cut IS the weekly approval the load waits on, and you say the load is next |
+| send | "write my cold email", "send this week's batch", "this week's batch went out", `/the-cold-loop send` | 0, 2, 3. Still the week's Run: the 50 enter from Wednesday. Beat 2 once a batch, beat 3 every morning of the sending week, Monday to Saturday, and "this week's batch went out" is beat 3's weekly stamp on its own. Once `squad/outreach-routine.md` exists, 5.4 to 5.6 replace beat 3: the batch loads instead of printing cohorts to copy |
+| read | "read my batch", "how did the batch do", `/the-cold-loop read` | 0, 4. Measure and Improve, Sunday, before `/bip sunday`, which carries the Improve line |
 | routine | "put the send on Instantly", `/the-cold-loop routine` | 0, 5. Once Gate A is open, the setup and the first load |
 | turn it on | "turn it on", "start the campaign" | 5.6 only. The word that starts a campaign holding an approved batch |
 
@@ -47,9 +48,9 @@ resume table, and says in one line which one it entered and why.
 |---|---|
 | 0 THE SOURCES | AUTO: the install check, the roots file, the offer document, the mode's own files, and the 2 blocks said once |
 | 1 THE LIST | HUMAN INPUT: the town, both countries, the postal address, once. **STOP · GATE: a consent country stops the run.** Then AUTO: the pull, the drops, the broken-thing sentence, the dedup. Then **STOP · GATE: the founder cuts to 50 and says why in their own words** |
-| 2 THE MESSAGES | HUMAN INPUT, once, only where the roots file holds neither: the postal address that goes on every message, and the mailbox they go out of. Then AUTO: the master email and the day-4 and day-9 texts, the footer on all 3. Then **STOP · GATE: the founder changes any word that is not theirs** |
-| 3 THE DAY | AUTO: all 3 cohorts, as drafts in the founder's mailbox or as one file. **STOP: they read the first lines and press send.** Then AUTO, once a week: the stamp |
-| 4 THE READ | AUTO: the finished check, 2 numbers off the log and off the campaign's own analytics once one exists, the ladder, the interval in words, both scoreboards. **STOP · GATE: exactly one change for next week.** Then the weekly task, offered once behind the risk gate, and registered in that turn on a yes |
+| 2 THE MESSAGES | HUMAN INPUT, once, only where the roots file holds neither: the postal address that goes on every message, and the mailbox they go out of. Then AUTO: the master email and the day-4 and day-9 texts, the footer on all 3. Then **STOP · GATE: the founder changes any word that is not theirs.** Then AUTO: the batch's message file |
+| 3 THE DAY | AUTO, Monday to Saturday: all 3 cohorts, as drafts in the founder's mailbox or as one file, and the morning's rows written to the log as drafted. **STOP: they read the first lines and press send.** Then AUTO, once a week: the stamp |
+| 4 THE READ | AUTO: the finished check and, on an unfinished batch, the week's counts and the hold. On a finished one, 2 numbers off the log and off the campaign's own analytics once one exists, the ladder, the interval in words, both scoreboards. **STOP · GATE: the Improve line, one named change or a named hold, briefing the next Run.** Then the weekly task, offered once behind the risk gate, and registered in that turn on a yes |
 | 5 THE ROUTINE | AUTO: the gates read out of the files. Then the sending address read back off the roots file, HUMAN INPUT only where beat 2 never asked, then Instantly connected. AUTO: the campaign built paused, and from the load on, the week's stamp read off the campaign. **STOP · GATE, every week, forever: the founder approves the list before it loads.** Then AUTO: the load. Then, the first time only, **STOP · GATE: the founder says the word and the campaign starts.** Beat 5.7 runs behind Gate B only |
 
 The beat numbers ARE the step numbers below. Never pause an automated beat to ask a small
@@ -62,12 +63,12 @@ order and continue at the first one missing or incomplete.
 
 | Missing or incomplete | Resume at |
 |---|---|
-| `.claude/squad-roots.md` carries no `postal address` row | beat 1, the questions only |
+| `squad/cold-list.md` exists and `.claude/squad-roots.md` carries no `postal address` row | beat 1, the questions only |
 | `squad/cold-list.md` does not exist | beat 1 |
 | its newest section carries no `cut <date>` | beat 1, THE GATE ONLY: print the rows, never re-pull |
-| the newest section is cut and no message set exists for it | beat 2 |
+| the newest section is cut and `squad/cold-messages-<its cut date>.md` does not exist | beat 2 |
 | the messages exist and `.claude/squad-roots.md` carries no `sending address` row | beat 2, the mailbox question only |
-| the messages exist and today's cohorts are not drafted or written | beat 3 |
+| the messages exist, `squad/outreach-routine.md` does not exist, and today's cohorts are not drafted or written | beat 3 |
 | the week's rows in `squad/outreach-sent.md` are unstamped | beat 3, the stamp only. Once a campaign is doing the sending, beat 5's stamp, off the campaign's own analytics |
 | a batch is past day 9 of its last name and `squad/outreach-read.md` holds no section for it | beat 4 |
 | Gate A is open and `squad/outreach-routine.md` does not exist | beat 5 |
@@ -79,22 +80,27 @@ order and continue at the first one missing or incomplete.
 Never re-pull a batch the file already holds, never restamp a week the log already carries, and
 never regrade a batch whose section is on disk.
 
-## The outputs (5 files, 1 campaign, 1 task)
+## The outputs (7 files, 1 campaign, 1 task)
 
 1. `squad/cold-list.md`: the batches, newest section on top. Each section is 50 rows, one trade,
    one town, each row carrying the one thing broken there, under a header holding the founder's own
    cut rule and `cut <date>`. A new pull adds a section; the sections under it are never rewritten.
    Beat 1, and beat 1 only.
-2. `squad/cold-batch-<date>.md`: the day's 3 cohorts, ready to copy, written only where the
-   founder's mailbox is not reachable through their own mail connector. Beat 3.
-3. `squad/outreach-sent.md`: the founder's own log, one row per company per touch, stamped once
-   a week, and the file every future pull dedups against. Beat 3 by hand, and beat 5 off the
-   campaign's own analytics once the campaign is doing the sending.
-4. `squad/outreach-read.md`: the scoreboards at the top, rewritten each run, and one section per
+2. `squad/cold-messages-<cut date>.md`: the 3 touch templates for that batch, the footer on each,
+   written for every batch whether or not a mail connector exists. It is what beat 3 fills in each
+   morning and what beat 5.5 loads as the campaign's steps. Beat 2, and beat 2 only.
+3. `squad/cold-batch-<the day it was drafted>.md`: that morning's 3 cohorts with the names filled
+   in, ready to copy, written only where the founder's mailbox is not reachable through their own
+   mail connector. The date here is the drafting day, not the batch's cut date. Beat 3.
+4. `squad/outreach-sent.md`: the founder's own log, one row per company per touch, written the
+   morning a touch is drafted and stamped once a week, and the file every future pull dedups
+   against. Beat 3 by hand, and beat 5 off the campaign's own analytics once the campaign is doing
+   the sending.
+5. `squad/outreach-read.md`: the scoreboards at the top, rewritten each run, and one section per
    finished batch below them, appended and never rewritten. Beat 4.
-5. `squad/outreach-routine.md`: what was built in Instantly, the sending address, the daily
+6. `squad/outreach-routine.md`: what was built in Instantly, the sending address, the daily
    limit, the gate state on the day it was built, and what it costs a month. Beat 5.
-6. `.claude/squad-roots.md`: given the `postal address`, `cold list town` and `sending address`
+7. `.claude/squad-roots.md`: given the `postal address`, `cold list town` and `sending address`
    rows. Nothing else in it touched.
 
 Off disk, exactly 2 things get created, and both need the founder's word in that turn: **one
@@ -102,7 +108,7 @@ Instantly campaign** at beat 5, in the founder's own workspace, holding the batc
 paused until they say the word that starts it, and **one weekly read task** named `outreach-read` at
 beat 4, offered once behind the risk gate and built only on their yes.
 
-Nothing else gets written. Never `squad/90-day-plan.md` (the 90-Day Plan's outputs are closed),
+Nothing else gets written. Never `squad/90-day-plan.md` (the 4-week plan's outputs are closed),
 never `squad/business.md`, never `squad/clients/`, never `squad/demos/`, never the Outreach
 Sheet, and never an email that leaves the laptop.
 
@@ -125,10 +131,13 @@ servers. There is no thin mode here. The pull is the list.
 **Then read, and say in one line what opened:** `.claude/squad-roots.md`, `squad/business.md`,
 and the mode's own files (list: `squad/outreach-sent.md`, and `squad/cold-list.md` where it exists,
 for the newest section's cut rule. send: `squad/cold-list.md`,
-`squad/sales.md` if it exists. read: `squad/outreach-sent.md`, `squad/cold-list.md`,
+`squad/cold-messages-<cut date>.md` where beat 2 has run, `squad/outreach-sent.md`, which is where
+the days each cohort entered are read from, and `squad/sales.md` if it exists. read:
+`squad/outreach-sent.md`, `squad/cold-list.md`,
 `squad/pipeline.md`, and, once `squad/outreach-routine.md` names a campaign,
 `analytics_campaign_overview` and `analytics_campaign_steps` for it. routine:
-`squad/outreach-read.md`, `squad/pipeline.md`).
+`squad/outreach-read.md`, `squad/pipeline.md`, `squad/cold-messages-<cut date>.md` for the 3
+touches the load carries).
 
 **`squad/business.md` in one of 3 states:**
 
@@ -150,10 +159,11 @@ That is the whole of it. The list does not scrape itself, the read does not run 
 no split test resolves at this volume. Everything else in this lane happens while the founder is
 sitting at their laptop, and the first 3 weeks are entirely by hand.
 
-**The real load, said before week 2 says it for you.** 50 people a week, 10 new names a day. Each
-name gets 3 touches, on day 1, day 4 and day 9, so from day 9 onward a weekday carries about **30
-messages** to 3 different cohorts. The block is about 30 minutes. And the unit never moves: a
-reply rate's denominator is **people contacted**, never messages sent, and the two are off by 3x.
+**The real load, said before week 2 says it for you.** 50 people enter the sequence in the week's
+Run, from Wednesday. Each name gets 3 touches, on day 1, day 4 and day 9, so from day 9 onward the week carries
+about **150 messages** to 3 different cohorts, and by hand that is a sit inside the system block every
+sending morning. And the unit never moves: a reply rate's denominator is **people contacted**, never
+messages sent, and the two are off by 3x.
 
 ## Beat 1 · THE LIST
 
@@ -166,6 +176,13 @@ rules, the shapes a broken-thing sentence takes, and the file's own layout. Read
 2. Where the founder is, and where this list is. Both. This is the jurisdiction question.
 3. The founder's postal address, the one that goes on every message. Written to the roots file
    as `postal address`.
+
+**On any list after the first, one more line in that same message, and it is asked before the
+pull, never after it.** Print the `cold list town` and the trade the offer document gives, and ask
+whether this batch widens either. One trade and one town binds the first list only, a town holds a
+fixed number of businesses in one trade, the dedup takes out everyone the first pull already got,
+and Gate B needs 2 finished batches. Pull on their answer, and where the town changed, update the
+`cold list town` row.
 
 **STOP · GATE, jurisdiction.** If either country runs a prior-consent regime for commercial
 email to a business, stop. Germany is the named example: UWG Section 7(2) requires prior express
@@ -209,10 +226,6 @@ next pull reads it back at the line above. On their cut, write this batch as a N
 top of `squad/cold-list.md`, headed `cut <today's date>`, and leave every section under it exactly
 as it stands.
 
-**On any list after the first, one line:** the trade or the town may widen now. One trade and one
-town binds the first list only, a town holds a fixed number of businesses, and Gate B needs 2
-finished batches.
-
 **Refuses.** To invent an email address: the cell stays blank with a note that the row is worth a
 phone call. To write a list for a consent country before the gate is answered.
 
@@ -247,26 +260,42 @@ address`; beat 5.1 reads that row back instead of asking twice.
 theirs. One sentence back is enough. A cold email in a voice the founder cannot hold on a call is
 worse than no email.
 
+**On their word, write the 3 touches to `squad/cold-messages-<this batch's cut date>.md`**, the
+footer on each, whether or not the founder has a mail connector. This file is the batch's message
+set: beat 3 fills the names into it every morning, beat 5.5 loads it as the campaign's day 1, day 4
+and day 9 steps, and the resume rule reads it to know beat 2 is done. A message set that lives only
+in a session's memory is a message set the next session rewrites.
+
 ## Beat 3 · THE DAY
 
-Mode `send`, every morning of the sending week.
+Mode `send`, every morning of the sending week, Monday to Saturday. Sunday carries no send: a
+cohort whose day falls on a Sunday goes out Monday morning with that day's names.
 
-**Print all 3 cohorts, not just the new 10:** today's 10 new names with touch 1, the cohort from 4
-days ago with touch 2, the cohort from 9 days ago with touch 3. **Say the total out loud**, because
-from day 9 it is about 30.
+**Print all 3 cohorts, not just the new names:** today's share of the 50 with touch 1, the cohort
+from 4 days ago with touch 2, the cohort from 9 days ago with touch 3. **Say the total out loud**,
+because from day 9 the cohorts stack. Which names sit in which cohort is read off
+`squad/outreach-sent.md`, never off memory and never off the founder: the rows say who got touch 1
+on which morning, so day 4 and day 9 are arithmetic. The messages themselves come from
+`squad/cold-messages-<cut date>.md`.
 
 **The delivery.** Where the founder's mailbox is reachable through their own mail connector, place
 the day's messages as **drafts** in their own mailbox, each follow-up threaded onto the original.
-Where it is not, write them to `squad/cold-batch-<date>.md` to copy. Either way **you never send.**
-A draft is not a send. And never draft from an address the founder has not named as theirs.
+Where it is not, write them to `squad/cold-batch-<today>.md` to copy, today being the drafting day
+rather than the batch's cut date, since one batch writes one of these every sending morning. Either
+way **you never send.** A draft is not a send. And never draft from an address the founder has not
+named as theirs.
 
 **STOP.** The founder reads the first lines before they press send. At 50 people a week, reading
 them is where the pattern is learned, and there is no version of this where you read them instead.
 
-**The log, once a week, not once a day.** At the end of the sending week the founder says the week
-went out, in those words, and you stamp that week's rows in `squad/outreach-sent.md` with their
-dates and touch numbers. That sentence runs the stamp on its own, with nothing else in this beat
-attached to it. A confirmation typed into chat 5 mornings a week is a ritual, not a record.
+**The log is written by you every morning and confirmed by the founder once a week.** The moment a
+morning's cohorts are drafted, write those rows into `squad/outreach-sent.md` with today's date and
+the touch number, marked `drafted`. That write is yours, not the founder's, and it is the only
+record of which names entered on which day, which is what tomorrow's day-4 and day-9 arithmetic
+runs on. Then at the end of the sending week the founder says the week went out, in those words,
+and you turn that week's `drafted` rows into stamped ones. That sentence runs the stamp on its own,
+with nothing else in this beat attached to it. **Never ask for a confirmation in chat 5 mornings a
+week**: a ritual is not a record, and the founder is asked once.
 
 **The demo, when a company on the list is worth it.** Outreach needs proof; without proof it is not
 outreach. Hand the company to `/mep` on its cold path, which is the founder saying "build the deck
@@ -276,39 +305,48 @@ never a quote. `/mep` writes the deck; this skill writes nothing there.
 When the deck exists, draft the case-study message to that company's competitors **on the same
 list, as the next batch's first line**, never as a second campaign running beside this one.
 
-**Refuses.** To write a 51st email. To send anything. To draft from an address the founder has not
+**Refuses.** To write to a 51st company. To send anything. To draft from an address the founder has not
 named. To write any message with no footer.
 
 ## Beat 4 · THE READ
 
-Mode `read`, Sunday. `references/the-numbers.md` runs this beat: the interval, how to say it in
-words, the ladder, and the file's layout. Read it before you print a number.
+Mode `read`, Sunday: Measure, then Improve. `references/the-numbers.md` runs this beat: the
+interval, how to say it in words, the ladder, and the file's layout. Read it before you print a number.
 
-**Run this read BEFORE `/bip sunday`**, so the week's one change is decided before the founder
-writes the week.
+**Run this read BEFORE `/bip sunday`**, so the Improve line is decided before the founder writes the
+week, and the Sunday post carries it.
 
-**The completeness check, first.** A batch whose last name went out fewer than 9 days ago is
-**unfinished**. Say so and stop: "Your number does not exist yet. Keep sending." Nothing below this
-line runs on an unfinished batch.
+**The completeness check, first.** Measure reads what has finished, which is usually last week's
+Run. A batch whose last name went out fewer than 9 days ago is **unfinished**. Say so, then print
+the week's 2 raw counts off `squad/outreach-sent.md`, labeled as counts and not as a rate: people
+contacted, and people delivered where the campaign reports it. Then stop: the rate, the Wilson
+interval, the ladder and any comparison all wait for the batch to finish. Hand the founder the hold
+for the plan's Improve cell, `holding until 50 people are past day 9, week N`. **Nothing below this
+line runs on an unfinished batch except the week's counts, printed as counts.** Week 1's Sunday
+reads the counts and little else, and that is a complete read for week 1.
 
-**One thing is exempt from that stop, and only one.** The winning-cut write further down keys on
+**One more thing runs on an unfinished batch, and only one.** The winning-cut write further down keys on
 `squad/pipeline.md`, never on a finished batch. Money can clear in week 2, so when a cold row shows
 money, write the cut rule and the first line even on an unfinished batch, say you wrote it, and
 then stop where the check said to stop. Gate B's condition 4 is only true if it is written on the
 day it happens.
 
-**Two numbers per finished batch: `sent` and `replied`**, every batch side by side in one table so
-replacement is visible. `sent` counts **people contacted**, and the table says so in its header. No
-opens (an open needs a pixel, `text_only` exists to avoid one, and Apple and Gmail inflate the
-number anyway), no bounce row, no batch age.
+**Two numbers per finished batch: `delivered` and `replied`**, both in **people contacted**, every
+batch side by side in one table so replacement is visible. The plan's Measure cell takes this pair
+by name. `delivered` is the people whose first touch actually landed, which is people contacted
+minus the ones that hard-bounced. Before Gate A nobody reports a bounce, so `sent` stands in and
+**the table header says which of the 2 it is printing**. No opens (an open needs a pixel,
+`text_only` exists to avoid one, and Apple and Gmail inflate the number anyway), no batch age.
 
 **Where those 2 numbers come from, in both worlds.** `squad/outreach-sent.md` is the source of
-truth either way. Before Gate A the founder's own hand sent the batch and beat 3's stamp fills the
-log. After the campaign is live the sending happened on Instantly's servers, so read that batch's
-window with `analytics_campaign_overview` and its per-touch counts with `analytics_campaign_steps`,
-and take `sent` and `replied` from there. **Convert to people before you print anything**: Instantly
-counts messages, this read counts people contacted, and the 2 are off by 3x. When the campaign and
-the log disagree, print both, name which is which, and use the campaign's number.
+truth either way. Before Gate A the founder's own hand sent the batch and beat 3's rows fill the
+log, so the header reads `sent`. After the campaign is live the sending happened on Instantly's
+servers, so read that batch's window with `analytics_campaign_overview` and its per-touch counts
+with `analytics_campaign_steps`. **People contacted for that batch is step 1's sent count in
+`analytics_campaign_steps`, and nothing else. Delivered is that same step 1 count minus step 1's
+bounces.** Never divide a campaign total by 3: `stop_on_reply` is true, so a person who replied got
+1 or 2 touches rather than 3, and the divisor is never actually 3. When the campaign and the log
+disagree, print both, name which is which, and use the campaign's number.
 
 **The ladder, stopping at the first failure.** Sent under the plan, and the block did not happen:
 fix the block, nothing else. Sent fine and replies near zero: the people first, then the first
@@ -358,12 +396,14 @@ What Gate B opens: beat 5.7, and nothing before it. A founder at day 120 with Ga
 has Gate A, which they have had since week 4, and a read that names which condition is missing and
 which lever moves it. Say that plainly rather than inventing a clock.
 
-**STOP · GATE.** One change for next week, proposed with its reason. Exactly one, the founder's yes
-or their own instead.
+**STOP · GATE, Improve.** One line, and it takes exactly 2 forms: one named change, proposed with
+its reason, or `holding until <number>, week N`. Most weeks read holding, and that is the plan
+working. The change is the brief for Monday's Run, never an edit to a batch already sending; marking
+a `stop` and answering people are hygiene, not the change. The founder's yes or their own line instead.
 
 **Then the weekly task, offered once, and only behind the risk gate.** The gate is 3 by-hand runs
-of this exact read, and the founder can say in one line what they changed last time. Offer it as
-what it is: **it makes sure the read happens on the days you would have skipped it.** Never as
+of this exact read, and the founder can say in one line what they changed, or held, last time. Offer
+it as what it is: **it makes sure the read happens on the days you would have skipped it.** Never as
 running while you sleep. A scheduled task is skipped whenever the laptop sleeps and fires when the
 lid opens. **One task per founder, and this lane's is the read.** The standing rule, quoted: a
 routine that only reads, only drafts or only reduces spend may be scheduled; a routine that sends,
@@ -379,9 +419,18 @@ choose always-allow on every read it asks about, because a task that hits a perm
 have stalls until somebody approves it, and nobody is watching at 9am on a Sunday. On a no, write
 nothing, register nothing, and never offer again.
 
-**Last, hand the founder one line for Sunday**: the one change they just agreed to, in their own
-words. `/bip sunday` adds nothing up, so it takes the change, not a total. Then stop. You never write
-`squad/90-day-plan.md`.
+**Last, hand the founder the line to paste**, in the 4-week plan's own words, so they carry a
+finished sentence rather than compose one:
+
+> Put this in week N's Measure: `<n> people delivered, <n> replies` / Improve: `<the line>`
+
+On an unfinished batch the Measure half reads `held until batch <date> is past day 9`, which is the
+form that plan accepts, and the Improve half is the hold. Before Gate A, where the header printed
+`sent`, the Measure half says `<n> people contacted` in place of delivered.
+
+It goes in 2 places by their hand: the Improve cell of that week's row in the 4-week plan, and the
+Sunday post, since `/bip sunday` adds nothing up and takes the line, not a total. Then stop. You
+never write `squad/90-day-plan.md`.
 
 ## Beat 5 · THE ROUTINE
 
@@ -416,8 +465,8 @@ disagree. Print the monthly total off `references/the-campaign.md` before the fo
 anything.
 
 **5.3, AUTO: the campaign, built paused.** `stop_on_reply` true, `text_only` true, `open_tracking`
-false, `daily_limit` set in messages, which is the unit Instantly counts (the by-hand day's total,
-about 30 once all 3 cohorts are running, and never above the number they were already sending by
+false, `daily_limit` set in messages, which is the unit Instantly counts (the by-hand day's total
+once all 3 cohorts are running, and never above the number they were already sending by
 hand), `email_gap` spread across the window, the footer preserved on every step. Say out loud that
 Instantly's own High Bounce Auto-Pause does not arm until a campaign has sent 200 emails, so for the
 first weeks **the founder is the brake**. Do not turn on A/Z auto-optimize, and say why: its own documentation states
@@ -433,8 +482,10 @@ Once a campaign has sent, read that campaign's bounces with `analytics_campaign_
 to load when bounce is over 2%, saying the number you read. On the first load nothing has sent
 through Instantly yet, so say there is no bounce number yet and let the DNS check stand as the gate.
 Then load that batch and nothing else: the approved rows as leads
-(`add_leads_to_campaign_or_list_bulk`), each carrying its own broken-thing first line, and beat 2's
-3 touches as the campaign's day 1, day 4 and day 9 steps with the footer preserved on every one.
+(`add_leads_to_campaign_or_list_bulk`), each carrying its own broken-thing first line, and the 3
+touches read out of `squad/cold-messages-<that batch's cut date>.md` as the campaign's day 1, day 4
+and day 9 steps, with the footer preserved on every one. No message file for that batch means beat 2
+never finished: go there rather than writing the touches again from memory.
 Never load a row with no `cut <date>` above it, never load a row already in `squad/outreach-sent.md`,
 and never load more than 50. Report 3 counts: loaded, dropped as duplicates, dropped for a missing
 address.

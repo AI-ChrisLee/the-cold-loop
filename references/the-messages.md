@@ -58,15 +58,36 @@ not named, so an unanswered row here stops the morning later.
 `squad/outreach-sent.md`, and beat 1's dedup drops it from every future list. That mark is the whole
 mechanism, so never write a row without it.
 
-## The daily file
+## The batch's message file
 
-`squad/cold-batch-<date>.md`, written only where the founder's mailbox is not reachable through
-their own mail connector:
+`squad/cold-messages-<the batch's cut date>.md`, written by beat 2 on the founder's word, for every
+batch, whether or not a mail connector exists:
 
 ```
-# <date> · 30 messages, 3 cohorts
+# Cold messages · batch <cut date>
 
-## Touch 1 · 10 new names
+## Touch 1 · day 1
+Subject: ...
+<body with <company> and <broken thing> left as placeholders, footer included>
+
+## Touch 2 · day 4
+## Touch 3 · day 9
+```
+
+Beat 3 fills the names into these every morning. Beat 5.5 loads them as the campaign's 3 steps. The
+resume rule reads this file to know beat 2 finished, so a batch without one gets its messages
+written again from the top rather than half-remembered.
+
+## The daily file
+
+`squad/cold-batch-<the day it was drafted>.md`, written only where the founder's mailbox is not
+reachable through their own mail connector. **The date in the name is the drafting day, not the
+batch's cut date**, since one batch produces a file every sending morning:
+
+```
+# <the drafting day> · <n> messages, 3 cohorts
+
+## Touch 1 · today's new names
 ### <Company> · <email>
 Subject: ...
 <body, footer included>
@@ -80,7 +101,10 @@ onto the original message. A draft is not a send. The founder presses send.
 
 ## The log
 
-`squad/outreach-sent.md`, stamped once a week, never once a day:
+`squad/outreach-sent.md`. The rows are written the morning their touch is drafted, marked
+`drafted`, because nothing else on disk says which names entered on which day and tomorrow's day-4
+and day-9 cohorts are arithmetic off those dates. The founder confirms once a week, never once a
+day, and that turns the week's `drafted` rows into stamped ones:
 
 ```
 # Outreach sent
@@ -88,8 +112,11 @@ onto the original message. A draft is not a send. The founder presses send.
 | Batch | Company | Email | Touch 1 | Touch 2 | Touch 3 | Replied | Note |
 |---|---|---|---|---|---|---|---|
 | 2026-09-07 | ... | ... | 2026-09-08 | 2026-09-11 | 2026-09-16 | 2026-09-12 | |
+| 2026-09-07 | ... | ... | 2026-09-08 | 2026-09-11 | 2026-09-16 drafted | | |
 ```
 
-`Batch` is the list's cut date. A batch is **finished** when the last name is past day 9. `Note`
-carries `stop` when someone opts out, and nothing else. This file is the source of truth for the
+`Batch` is the list's cut date. A touch cell holds the date it was drafted, and `drafted` beside it
+until the founder says the week went out; the weekly stamp removes the word and nothing else. A
+batch is **finished** when the last name is past day 9. `Note` carries `stop` when someone opts
+out, and nothing else. This file is the source of truth for the
 read and for both gates, and it is the file every future pull dedups against.
