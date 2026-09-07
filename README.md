@@ -43,9 +43,9 @@ Sunday is the read:
   50 enter over 5 days. You read the first lines and press send. It refuses to stage more than 10
   new names a day, and says why in one line. If Gmail flags the mailbox, a second free Gmail takes
   over.
-- **"This week's batch went out."** Stamps what actually left, and prints the week's rows in your
-  Outreach Sheet's 7 Cold-tab columns for you to paste. The Status cell is yours the day a reply or
-  a call lands.
+- **"This week's batch went out."** Stamps what actually left, so the next list drops everyone you
+  have already written to. When a reply lands, you hand it to the Close, and that is what writes
+  the person's row in your pipeline.
 - **"Put the send on Instantly."** Once one batch has fully gone out by your hand. It connects your
   Instantly, builds one campaign paused with your 3 messages at the daily number you sent by hand,
   and waits. **"Turn it on."** starts it. From then on **"Send this week's batch."** loads the week's
@@ -74,10 +74,9 @@ first line, or one paying client. Both are counts, and the skill prints which on
 
 One ranked list a week you would defend to a stranger, 3 messages in your own voice with a footer
 that keeps you legal, a log that drops everyone you already wrote to so you never email a town
-twice, the week's rows for your sheet, a Sunday read that measures what finished and names one
-change or one hold, and once your hand has proven the first batch, one campaign sending overnight on
-Instantly's servers while you sleep. Replies come to you, and you answer them yourself. That part
-never gets automated.
+twice, a Sunday read that measures what finished and names one change or one hold, and once your
+hand has proven the first batch, one campaign sending overnight on Instantly's servers while you
+sleep. Replies come to you, and you answer them yourself. That part never gets automated.
 
 ## What comes next
 

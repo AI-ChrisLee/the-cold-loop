@@ -104,7 +104,7 @@ above the last one and rewrites nothing underneath.
 
 Who got which touch on which day lives in `squad/outreach-sent.md`, and only there. This file
 carries no touch column: one fact, one home. `Link` is the company's site, or its Maps listing
-where it has no site; the sheet table at the stamp reads it from here.
+where it has no site.
 
 The `Email` cell stays blank where no address is reachable, with a note that the row is worth a
 phone call. Never invent one: a guessed address is a bounce, and bounces move the whole domain.

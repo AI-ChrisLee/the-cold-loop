@@ -1,6 +1,6 @@
 ---
 name: the-cold-loop
-description: Use this when the founder is going after strangers. They say "build my outreach list", "pull my list", "/the-cold-loop list", "write my cold email", "send this week's batch", "this week's batch went out", "put the send on Instantly", "turn it on", "start the campaign", "/the-cold-loop send", "read my batch", "how did the batch do", "/the-cold-loop read", "raise the daily number", "add a second town", "put the read on a routine", "/the-cold-loop routine", or "continue the cold loop" (picking a stopped run back up). It builds squad/cold-list.md, 50 named companies in one trade in one town, each row carrying the one thing broken there, ranked by the squad and approved with one word; writes the 3 touches with the legal footer on every one; stages 10 new names a day for the founder's own hand and hands back the week's rows for their Outreach Sheet; once one batch has gone out by hand, puts the same send on Instantly at the same daily number, starting on the founder's word; reads 3 numbers off finished batches, people contacted, replies, calls booked; and once a batch books 2 calls or brings a paying client, runs the routine one move at a time. It never sends anything itself, and it refuses to write a cold message carrying no postal address and no opt-out.
+description: Use this when the founder is going after strangers. They say "build my outreach list", "pull my list", "/the-cold-loop list", "write my cold email", "send this week's batch", "this week's batch went out", "put the send on Instantly", "turn it on", "start the campaign", "/the-cold-loop send", "read my batch", "how did the batch do", "/the-cold-loop read", "raise the daily number", "add a second town", "put the read on a routine", "/the-cold-loop routine", or "continue the cold loop" (picking a stopped run back up). It builds squad/cold-list.md, 50 named companies in one trade in one town, each row carrying the one thing broken there, ranked by the squad and approved with one word; writes the 3 touches with the legal footer on every one; stages 10 new names a day for the founder's own hand; once one batch has gone out by hand, puts the same send on Instantly at the same daily number, starting on the founder's word; reads 3 numbers off finished batches, people contacted, replies, calls booked; and once a batch books 2 calls or brings a paying client, runs the routine one move at a time. It never sends anything itself, and it refuses to write a cold message carrying no postal address and no opt-out.
 ---
 
 # The Cold Loop
@@ -26,10 +26,10 @@ workaround.
 
 This skill runs in ANY founder's repo. `.claude/squad-roots.md` is the per-repo instance file
 every member-run skill reads first (founder name, voice sample, talk to me, and the `postal
-address`, `cold list town`, `sending address` and `outreach sheet` rows this skill fills), and
-its values win over the `squad/` paths below, which are worked examples. A row reading "(none
-yet)" is an unanswered field, not an override: the worked-example path stands until this run
-fills it. `<date>` is `YYYY-MM-DD`. A batch is named by the date the founder said go on its list.
+address`, `cold list town` and `sending address` rows this skill fills), and its values win over
+the `squad/` paths below, which are worked examples. A row reading "(none yet)" is an unanswered
+field, not an override: the worked-example path stands until this run fills it. `<date>` is
+`YYYY-MM-DD`. A batch is named by the date the founder said go on its list.
 
 ## The modes, and how they are called
 
@@ -51,7 +51,7 @@ resume table, and says in one line which one it entered and why.
 | 0 THE SOURCES | AUTO: the install check, the roots file, the offer document, the mode's own files, and the one block said once |
 | 1 THE LIST | HUMAN INPUT: the town, both countries, the postal address, once. **STOP · GATE: a consent country stops the run.** Then AUTO: the pull, the drops, the one sentence per row, the dedup, the rank, the top 50 written and printed numbered. Then **STOP · GATE: the founder says go, or swap row N** |
 | 2 THE MESSAGES | HUMAN INPUT, once, only where the roots file holds neither: the postal address that goes on every message, and the mailbox they go out of. Then AUTO: the master email and the day-4 and day-9 texts, the footer on all 3. Then **STOP · GATE: the founder changes any word that is not theirs.** Then AUTO: the batch's message file |
-| 3 THE SEND | AUTO, every sending morning by hand: at most 10 new names, plus the day-4 and day-9 follow-ups due, as drafts or as one file, the rows written to the log as drafted. **STOP: they read the first lines and press send.** Then AUTO, once a week: the stamp, and the week's rows printed in the sheet's 7 columns. Once one batch has fully gone out by hand, on "Put the send on Instantly.": HUMAN INPUT, the connector, then AUTO: the campaign built paused. **STOP · GATE: "Turn it on."** From then on "Send this week's batch." is AUTO: the checks, the load of the week's approved 50, and the stamp off the campaign |
+| 3 THE SEND | AUTO, every sending morning by hand: at most 10 new names, plus the day-4 and day-9 follow-ups due, as drafts or as one file, the rows written to the log as drafted. **STOP: they read the first lines and press send.** Then AUTO, once a week: the stamp. Once one batch has fully gone out by hand, on "Put the send on Instantly.": HUMAN INPUT, the connector, then AUTO: the campaign built paused. **STOP · GATE: "Turn it on."** From then on "Send this week's batch." is AUTO: the checks, the load of the week's approved 50, and the stamp off the campaign |
 | 4 THE READ | AUTO: the finished check; on an unfinished batch the week's counts. On a finished one, 3 numbers, the ladder, the one honest sentence, and the winner line the day money shows. **STOP · GATE: the Improve line, one named change or a named hold, briefing the next Run** |
 | 5 THE ROUTINE | AUTO: the signal read off the pipeline; not there, the count so far, and stop. Then one move at a time, each on the founder's word: HUMAN INPUT the second mailbox and AUTO the higher daily number; AUTO the second town or trade; the weekly read routine on the laptop, registered on their yes |
 
@@ -102,18 +102,17 @@ never regrade a batch whose section is on disk.
    the winner line the day money shows. Beat 4.
 6. `squad/outreach-routine.md`: the signal that opened the routine, each move made and its date,
    the mailboxes and their daily numbers, and what it costs a month. Beat 5.
-7. `.claude/squad-roots.md`: given the `postal address`, `cold list town`, `sending address` and
-   `outreach sheet` rows. Nothing else in it touched.
+7. `.claude/squad-roots.md`: given the `postal address`, `cold list town` and `sending address`
+   rows. Nothing else in it touched.
 
 Off disk, exactly 2 things get created, and both need the founder's word in that turn: **one
 Instantly campaign** at 3.3, in the founder's own workspace, built paused and started only on
 "Turn it on."; and **one weekly read routine** named `outreach-read` at beat 5, built only on
-their yes. The week's rows for the Outreach Sheet are printed as a table at the stamp; the founder
-pastes them, and this skill never writes the sheet.
+their yes.
 
 Nothing else gets written. Never `squad/90-day-plan.md` (the 4-week plan's outputs are closed),
-never `squad/business.md`, never `squad/clients/`, never `squad/demos/`, never the Outreach Sheet
-itself, and never an email that leaves the laptop.
+never `squad/business.md`, never `squad/clients/`, never `squad/demos/`, never `squad/pipeline.md`,
+and never an email that leaves the laptop.
 
 ## Beat 0 · The sources
 
@@ -258,7 +257,7 @@ a session's memory is a message set the next session rewrites.
 ## Beat 3 · THE SEND
 
 Mode `send`. By hand until one batch has fully gone out that way; on Instantly after, at the same
-daily number. `references/the-messages.md` carries the daily file, the log and the sheet table;
+daily number. `references/the-messages.md` carries the daily file and the log;
 `references/the-campaign.md` carries the connector, the settings and the load.
 
 **3.1, the day by hand.** Every sending morning, Monday to Saturday. Sunday carries no send: a
@@ -296,15 +295,11 @@ confirmation in chat 5 mornings a week**: the founder is asked once, at the stam
 
 **3.2, the stamp, once a week.** At the end of the sending week the founder says "this week's
 batch went out", in those words, and that sentence runs the stamp on its own: the week's `drafted`
-rows become stamped ones, and every address that replied "stop" is marked `stop`. Then **print the
-week's rows as one table in the Outreach Sheet's Cold-tab columns**, Name, Channel, Status,
-Follow-up date, Revenue, Link, Message, one row per company whose touch 1 went out this week, for
-the founder to paste into the Cold tab; the exact fill of each column is in
-`references/the-messages.md`. The Status cell is theirs to change the day a reply or a call lands.
-No `outreach sheet` row in the roots file: ask once, at the first stamp, for the link to their copy
-of the sheet, and write the answer, a link or "none", so the row is never asked twice. The table
-prints either way. `squad/outreach-sent.md` stays this skill's own memory for the dedup and the
-read; the sheet is the founder's.
+rows become stamped ones, and every address that replied "stop" is marked `stop`.
+`squad/outreach-sent.md` is this skill's own memory, and the stamp is the whole job here: the dedup
+and the read both run off it. A reply that lands is not this skill's to file. The founder hands it
+to `the-close` the day it arrives, and that skill writes the person's row in `squad/pipeline.md`,
+name, source, bucket, date, next touch, what went out last, money. You never write that file.
 
 **3.3, on "Put the send on Instantly.", once one batch has fully gone out by hand.** The gate is
 one finished batch, read off `squad/outreach-sent.md`: every row of one batch carries all 3
@@ -356,9 +351,9 @@ is already running, the batch loads into it, and there is nothing to press.
 **The stamp, once the campaign does the sending.** Nobody typed the week out by hand, so nothing
 fills the log unless you do it. At the end of each sending week read `analytics_campaign_steps`
 for the campaign, stamp that batch's rows in `squad/outreach-sent.md` with the dates and touch
-numbers it reports, mark `stop` on every address that opted out, and print the same 7-column table
-as 3.2. Skip this and beat 1's dedup goes blind, beat 4 reads its numbers off a file nobody writes,
-and the next pull emails the town a second time.
+numbers it reports, and mark `stop` on every address that opted out. Skip this and beat 1's dedup
+goes blind, beat 4 reads its numbers off a file nobody writes, and the next pull emails the town a
+second time.
 
 **3.6, the deck for the best name.** When a company on the list is worth it, hand it to `/mep` on
 its cold path, which is the founder saying "build the deck for <company> off my cold list": the
@@ -514,4 +509,5 @@ mailboxes and their daily numbers, the routine's name, and the monthly cost. The
 - Never remove the weekly go, never load a list the founder has not approved, and never raise
   `daily_limit` outside beat 5's move 1.
 - Never turn on Instantly's A/Z auto-optimize at this volume.
-- Never write `squad/90-day-plan.md`, `squad/business.md` or the Outreach Sheet.
+- Never write `squad/90-day-plan.md`, `squad/business.md` or `squad/pipeline.md`. A person's row
+  is `the-close`'s to write.

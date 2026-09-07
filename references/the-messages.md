@@ -124,22 +124,6 @@ batch is **finished** when every row carries all 3 touches stamped and the last 
 `Note` carries `stop` when someone opts out, and nothing else. This file is the source of truth for
 the read and for the Instantly gate, and it is the file every future pull dedups against.
 
-## The sheet table
-
-Printed at every stamp, by hand or off the campaign, in the Outreach Sheet's Cold-tab columns, for
-the founder to paste. One row per company whose touch 1 went out that week; a company already on
-the sheet gets no second row.
-
-| Column | What goes in it |
-|---|---|
-| Name | the company, and the contact's name where the list has one |
-| Channel | `cold email` |
-| Status | `sent`. The founder changes it the day a reply or a call lands |
-| Follow-up date | the date touch 2 is due, day 4 from touch 1 |
-| Revenue | blank. The founder writes the money |
-| Link | the row's Link cell in `squad/cold-list.md`: the site, or the Maps listing |
-| Message | touch 1's first line for that row, the broken thing |
-
-The link to the founder's copy of the sheet lives in the roots file's `outreach sheet` row, asked
-once at the first stamp; "none" is an answer and the table prints either way. This skill never
-writes the sheet; `winrate` reads it on Sunday.
+It holds names, not people. The day one of them replies or takes a call, the founder hands that to
+`the-close`, and that skill writes the person's row in `squad/pipeline.md`. Nothing here writes
+that file.
