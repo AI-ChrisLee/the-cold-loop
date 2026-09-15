@@ -1,22 +1,24 @@
 # The list
 
-Beat 1's detail. The list is the lever, not the sentence craft: the jump in reply rate happens at
-the row, where something specific about this business is true, and "first name plus company" (what
-every mail merge produces) buys close to nothing.
+Beat 1's detail. The list is the lever. The jump in reply rate happens at the row, where the thing
+you say is true of that business and of nobody else on the list, and "first name plus company",
+what every mail merge produces, buys close to nothing.
+
+**This beat scrapes. It does not diagnose.** Every column in the file is a field the pull returned.
+Nothing in it says what a business needs, because a pull cannot see that, and a guess dressed as an
+observation is the thing a stranger spots first.
 
 ## Why 50, and why one trade in one town
 
-**50 is how many real first lines one founder can read and send in a week at 10 a day.** Belkins'
-analysis of 16.5 million emails points the same way (campaigns under 50 recipients reply at 5.8%,
-campaigns at 500+ at 2.1%), and that split is a pattern seen after the fact, not a cause: small
-campaigns are small because a human picked them, and the same hand wrote the better email. Quote it
-as support, never as the cause.
+50 is one week's batch at 30 a day, and it is small enough that the founder can still read the
+names. Belkins' analysis of 16.5 million emails points the same way: campaigns under 50 recipients
+reply at 5.8%, campaigns at 500+ at 2.1%. That split is a pattern seen after the fact, not a cause.
+Quote it as support, never as the cause.
 
-One trade and one town so the broken-thing sentence can repeat its shape across the batch and the
-founder learns which shape lands. **It binds the list until the routine opens.** A second town or
-trade is beat 5's move 2, made on the same first line once that line has booked calls. The one
-exception is a town that cannot leave 50 standing after the drops and the dedup: say so, ask which
-one widens, and pull on the answer.
+One trade and one town so the same message lands on every row. **It binds the list until the
+routine opens.** A second town is beat 5's move 2. **A town that cannot leave 50 standing after the
+drops and the dedup widens the town, never the trade.** Pull the next ring of suburbs and say in one
+line how far you went.
 
 Companies under 50 employees answer more than anyone else in the benchmark set, around 7%. Named
 local businesses sit in the friendliest group there is. Worth saying to a founder who thinks cold
@@ -29,8 +31,8 @@ input off the live schema. Never assume a field from memory; this is a repo rule
 moves.
 
 - Query `<trade> in <town>`.
-- **Cap the pull at 120 places.** The drops take roughly a third, and the rank keeps the top 50 of
-  what stands, so 120 in is what leaves 50 sharp rows.
+- **Cap the pull at 120 places.** The drops take roughly a third and the rank keeps the top 50 of
+  what stands, so 120 in is what leaves 50 rows.
 - Never pad the list to reach the number.
 - **The add-ons cost real money on the free tier.** Business leads and email verification are $0.10
   each on free, against a $5 monthly credit, and $0.004 to $0.005 on any paid tier. 200
@@ -43,71 +45,57 @@ moves.
 | Out | Why |
 |---|---|
 | Chains and franchises | the person who could say yes is not at that address |
-| A site rebuilt inside the last year | somebody already sold them the thing that is broken |
-| No reachable contact | a row you cannot write to is not a row |
+| No email address | this is an email list. A guessed address is a bounce, and a bounce moves the whole domain |
 
 One line on how many went and why. Never a section, never a table of the dead.
 
-## The one sentence
-
-What is broken there, visible from outside, in one sentence a stranger would recognise as being
-about them. Where to look, in the order that pays:
-
-1. **The site on a phone.** Text under the fold, a menu that does not open, a form that overflows.
-2. **The Maps listing.** No hours, no photos since 2019, a phone number that is not the site's.
-3. **The booking button.** Whether it goes anywhere, and what happens after the second tap.
-4. **The reviews against the site.** 200 reviews at 4.8 and a site that never mentions one.
-
-**The test.** A sentence that would fit any business in the trade is not a row yet. Rewrite it with
-their noun in it, or drop the row.
-
 ## The rank
 
-The squad orders the rows and keeps the top 50. Sharp, from the top down:
+**Most Google reviews first.** It is the one number the pull returns for every row, it cannot be
+argued with, and it puts the busiest businesses in the trade at the top of the file. Ties break on
+the contact: a named person over an info@ box.
 
-| Rank | The sentence |
-|---|---|
-| first | names one thing seen today, in their own noun, that the offer fixes: "your booking button on a phone opens a blank page" |
-| middle | true and specific, but the offer fixes it only sideways: "no photos on Maps since 2019" for someone selling booking pages |
-| last | true of any shop in the trade: "your site could look more modern" |
-
-Ties break on the contact: a named person over an info@ box, a reachable email over a phone-only
-row. Print the 50 numbered with their sentences. The rows below 50 stay in hand, in rank order,
-so "swap row N" puts the next one in N's place without a second pull.
+Keep the top 50. Print them numbered, three fields each, company, review count, email. **One answer
+moves the list: go.**
 
 ## The dedup
 
-Drop every address that already appears in `squad/outreach-sent.md`, **including every row marked
-`stop`**. A repeated pull against one trade in one town re-pulls the same businesses, so without
-this check week 2 emails the people week 1 emailed. That is the complaint engine, and 1 complaint at
-50 sends is 2%, 20 times the 0.10% practical threshold. There is no volume to hide under either:
-Google's all-sender rule asks every sender, at every volume, to keep complaints under 0.3%.
+Drop every company that already appears in `squad/outreach-sent.md`, **including every row whose
+`replied` field reads `stop`**. A repeated pull against one trade in one town re-pulls the same
+businesses, so without this check week 2 emails the people week 1 emailed. That is the complaint
+engine, and 1 complaint at 50 sends is 2%, 20 times the 0.10% practical threshold. There is no
+volume to hide under either: Google's all-sender rule asks every sender, at every volume, to keep
+complaints under 0.3%.
 
 ## The file
 
-`squad/cold-list.md`, one section per batch, newest on top:
+`squad/cold-list.csv`, one real CSV, one batch, rewritten whole at every go. The founder opens it in
+a sheet to read it and Instantly imports the same bytes. One header row, UTF-8, one sheet:
 
 ```
-# Cold list
-
-## <trade> in <town>
-ranked by the squad, top 50 of <count>, <date> · go <date> · dropped <n> (chains, rebuilt inside a year, no contact)
-
-| # | Company | Contact | Email | Link | What is broken there |
-|---|---|---|---|---|---|
-| 1 | ... | ... | ... | site or Maps listing | one sentence |
+Email,First name,Last name,Company name,Website,Phone,Reviews,City
+dana@verdantmedspa.com,Dana,Whitlock,Verdant Med Spa,verdantmedspa.com,(512) 400-1000,318,Austin
 ```
 
-The header is written at the rank, without `go`; the founder's go stamps `go <date>` onto it, and
-that date names the batch. The header never carries a member rule. A new pull writes a new section
-above the last one and rewrites nothing underneath.
+| Column | What the pull returned |
+|---|---|
+| `Email` | the address on the listing or the site. Required: a row without one was dropped |
+| `First name`, `Last name` | the contact's name split on the space. Both blank where the address is an info@ box |
+| `Company name` | the listing's name |
+| `Website` | the listing's site, blank where it has none |
+| `Phone` | the listing's phone |
+| `Reviews` | the Google review count, the number the rank runs on |
+| `City` | the town this batch was pulled in |
 
-Who got which touch on which day lives in `squad/outreach-sent.md`, and only there. This file
-carries no touch column: one fact, one home. `Link` is the company's site, or its Maps listing
-where it has no site.
+**`Reviews` and `City` are what day 1 merges**, as `{{Reviews}}` and `{{City}}`, matched by name and
+by case: `reviews` merges nothing at all. Quote any cell holding a comma.
 
-The `Email` cell stays blank where no address is reachable, with a note that the row is worth a
-phone call. Never invent one: a guessed address is a bounce, and bounces move the whole domain.
+It is written at 2 moments and no others: at the go, and again on "Export my list for Instantly.",
+both times off the rows already approved and never off a fresh pull.
+
+**The go also writes the batch into `squad/outreach-sent.md`,** one row per company at touch 1 with
+`sent` left empty, stamped with the go date. That is where the batch gets its name, it is what the
+next pull dedups against, and it is what a resumed run reads to know this beat finished.
 
 ## The country rule
 
