@@ -28,8 +28,8 @@ Beat 2's cage and beat 3's files. Three touches, one voice, a footer on every on
 | 2 | day 4 | something the first one did not say: a second thing seen, or what the fix looked like for someone else |
 | 3 | day 9 | the shortest one. One line, one door, and the door closes politely |
 
-In the campaign those 3 messages run as 3 steps about 2 days apart, so touch 3 lands a little
-sooner than day 9 and the words do not change. The 9-day clock does not move.
+In the campaign those 3 messages run as 3 steps, 3 days to step 2 and 5 days to step 3, so the
+days they land on are the days they are named for.
 
 **Never a bump.** "Just following up", "bumping this up your inbox", "did you see my last email" are
 messages about the founder. Each touch earns its own send or it does not go.
@@ -99,7 +99,7 @@ the message people mark as spam.
 
 ## The log
 
-`squad/outreach-sent.md`, this skill's own memory. **One row per company per touch.** Touch 1's
+`squad/outreach-sent.md`, this agent's own memory. **One row per company per touch.** Touch 1's
 rows are written at the go, `sent` empty; the weekly stamp fills `sent` and adds touches 2 and 3,
 because nothing else on disk says which names entered on which day and the 9-day clock is counted
 off those dates. The founder confirms once a week, never once a day:
@@ -125,5 +125,5 @@ stamp writes one row per week carrying the 2 totals the founder read off the cam
 so the next Sunday has something to subtract from.
 
 It holds names, not people. The day one of them replies or takes a call, the founder hands that to
-`the-close`, and that skill writes the person's row in `squad/pipeline.md`. Nothing here writes
+`the-close`, and that agent writes the person's row in `squad/pipeline.md`. Nothing here writes
 that file.

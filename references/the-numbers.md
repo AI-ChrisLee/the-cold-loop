@@ -111,4 +111,4 @@ contacted and replies. On an unfinished batch the Measure half is `held until 9 
 <date>'s last name went out`.
 
 Never write `squad/4-week-plan.md`, the 4-week plan's file. Its outputs are closed and belong to one
-skill.
+agent.

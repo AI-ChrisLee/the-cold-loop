@@ -22,7 +22,7 @@ Day one, in this order, on Instantly's own screens: make the account, **Email Ac
 and connect a second free address on the workspace the founder already owns, open that account's
 settings and set the daily campaign limit to 30, turn warmup on and leave it. The health score is read on Sundays and nowhere else.
 
-**This skill opens nothing in that workspace.** No connector, no API key, no call. Every step here
+**This agent opens nothing in that workspace.** No connector, no API key, no call. Every step here
 is printed for the founder to press, and the numbers that come back are the numbers they read off
 the screen and say out loud. Instantly's own screens are the member's path, and they work on the
 free trial, which holds 250 contacts.
@@ -35,7 +35,7 @@ free trial, which holds 250 contacts.
 | Open tracking | **off** | the pixel costs deliverability, and it is why this lane has no open rate |
 | Provider matching | **on** | Google mailboxes into Google inboxes lands better |
 | Daily limit | 30, the same number already set on the mailbox | one mailbox sending 30 a day reads as a person |
-| The steps | 3, about 2 days apart, the subject left empty on steps 2 and 3 | an empty subject threads them onto the first, so it reads as one conversation |
+| The steps | 3, waiting 3 days then 5 so they land on day 4 and day 9, the subject left empty on steps 2 and 3 | an empty subject threads them onto the first, so it reads as one conversation |
 | The schedule | the founder's own hours, Monday to Friday | mail arriving at 3am from a one-person business reads as what it is |
 | The footer | on every step | the postal address and the opt-out do not become optional here |
 

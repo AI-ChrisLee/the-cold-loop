@@ -7,7 +7,7 @@ description: Use this when the founder is going after strangers. They say "build
 
 **Your first message on a fresh run carries this line, once:**
 
-> This skill is a base. Once you have done it your way, tell your squad "update the skill to do it like this."
+> This agent is a base. Once you have done it your way, tell your squad "update the agent to do it like this."
 
 Strangers, one town and one trade at a time: get the list, send, read, make it a routine.
 
@@ -19,7 +19,7 @@ Two refusals. Every cold message carries a real postal address and a working opt
 volume, with no exception for business-to-business mail. And a country that requires consent before
 commercial mail stops the run.
 
-`.claude/squad-roots.md` is the per-repo instance file every member-run skill reads first, and its
+`.claude/squad-roots.md` is the per-repo instance file every member-run agent reads first, and its
 values win over the `squad/` paths below, which are worked examples. `<date>` is `YYYY-MM-DD`, and
 a batch is named by the date the founder said go.
 
@@ -45,13 +45,13 @@ re-rank it. Say in one line where you picked up.
 |---|---|
 | `squad/cold-list.csv` | the newest approved batch, 50 rows ranked by review count, in Instantly's import shape |
 | `squad/cold-messages-<go date>.md` | that batch's 3 touches, the footer on each |
-| `squad/outreach-sent.md` | one row per company per touch, `batch · company · touch · sent · replied`. This skill's memory, and what every pull dedups against |
+| `squad/outreach-sent.md` | one row per company per touch, `batch · company · touch · sent · replied`. This agent's memory, and what every pull dedups against |
 | `squad/outreach-read.md` | a section per finished batch, appended, plus the winner line |
 | `squad/outreach-routine.md` | the signal, each move and its date, the mailboxes, the monthly cost |
 | `.claude/squad-roots.md` | the `postal address`, `cold list town` and `sending address` rows, nothing else |
 
 Nothing is registered off disk. The Instantly account, the warmup, the import and the launch are
-the founder's own hands on Instantly's own screens; this skill writes files and never reaches into
+the founder's own hands on Instantly's own screens; this agent writes files and never reaches into
 that workspace.
 
 ## Before any mode
@@ -172,7 +172,7 @@ workspace: no connector, no key, no call. Print the path once, in this order, th
   campaign in that workspace. The free trial holds 250 contacts, so the fifth batch imported fills
   it; say that the first time the importer comes up.
 - **Sequences.** Day 1's message is step 1, `{{Reviews}}` and `{{City}}` in its first line, merged
-  off the CSV's own columns by name and by case. Then 2 more steps, about 2 days apart, the subject
+  off the CSV's own columns by name and by case. Then 2 more steps, 3 days to step 2 and 5 days to step 3, the subject
   left empty on both so they thread onto the first. Run the spam checker on step 1 and take its
   swaps. The footer stays on every step.
 - **Schedule.** The founder's own hours, Monday to Friday. Not weekends.
@@ -219,7 +219,7 @@ and a rate on messages is a third of the truth. No opens.
 **One source per number, and no second source.** People contacted and replies are the campaign's:
 stop and ask the founder to open that campaign in Instantly, go to Analytics, and paste step 1's
 sent count and the reply count **as they read**. Calls booked are `squad/pipeline.md`'s, counted
-here and never asked for. Instantly does not know a call happened, and this skill reaches into no
+here and never asked for. Instantly does not know a call happened, and this agent reaches into no
 workspace.
 
 **The screen counts the campaign, not the batch,** since one campaign carries every batch ever
@@ -301,7 +301,7 @@ and their daily numbers, the monthly cost. Then stop.
 - Never invent a company, a contact, an email address or a number. A row the pull reached no
   address for is dropped and counted, never guessed: a guessed address is a bounce.
 - Never invent a gate. Instantly's own warmup health reading opens the campaign; 2 calls off one
-  first line, or one paying client, opens the routine. No percentage this skill computed ever opens
+  first line, or one paying client, opens the routine. No percentage this agent computed ever opens
   anything.
 - Never claim the list scrapes itself, that the numbers get read overnight, or that a split test
   runs on its own. At this volume none of the 3 is true.

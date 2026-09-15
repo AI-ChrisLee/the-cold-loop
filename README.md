@@ -1,6 +1,6 @@
 # The Cold Loop: install in 60 seconds
 
-This skill is a base. Once you have done it your way, tell your squad "update the skill to do it
+This agent is a base. Once you have done it your way, tell your squad "update the agent to do it
 like this."
 
 The part of an Execution Squad that goes at strangers: 50 named businesses you have never met,
