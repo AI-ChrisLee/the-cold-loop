@@ -70,7 +70,7 @@ complaints under 0.3%.
 ## The file
 
 `squad/cold-list.csv`, one real CSV, one batch, rewritten whole at every go. The founder opens it in
-a sheet to read it and Instantly imports the same bytes. One header row, UTF-8, one sheet:
+a sheet to read it and the squad loads the same rows into the campaign. One header row, UTF-8, one sheet:
 
 ```
 Email,First name,Last name,Company name,Website,Phone,Reviews,City

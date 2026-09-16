@@ -11,8 +11,8 @@ messages is a third of the truth. Every table header says which unit it is in.
 
 | Number | Where it comes from |
 |---|---|
-| people contacted | step 1's sent count on the campaign's Analytics screen, pasted by the founder as it reads |
-| replies | the campaign's reply count on that same screen, pasted as it reads |
+| people contacted | step 1's sent count on the campaign, read through the founder's Instantly connector as it reports it |
+| replies | the campaign's reply count, read the same way |
 | calls booked | rows in `squad/pipeline.md` whose source names this list and whose `next touch` or `what went out last` field carries the word call |
 
 One source each, and no second source. Ask for the 2 campaign numbers in one message, count the

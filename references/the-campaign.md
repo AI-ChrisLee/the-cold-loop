@@ -12,9 +12,10 @@ takes a minute on Sunday. The send is the leg that runs while they sleep.
 ## The gate, in one line
 
 The warmup's own health reading, read on Sunday. A new sending address cannot open a campaign; it
-gets flagged. The founder turns warmup on in Instantly on day one, builds the campaign the same
-sitting and leaves it **paused**, and reads the health every Sunday. The first Monday it reads good,
-they press Launch. One reading, one day a week, and nothing leaves by hand in the meantime.
+gets flagged. The founder turns warmup on in Instantly on day one, the squad builds the campaign
+the same sitting through the founder's connector and leaves it **paused**, and every Sunday
+"Is my mailbox ready?" reads the health through that connector. The first Monday it reads ready,
+the founder presses Launch. One reading, one day a week, and nothing leaves by hand in the meantime.
 
 ## The account, by the founder's hand
 
@@ -22,10 +23,15 @@ Day one, in this order, on Instantly's own screens: make the account, **Email Ac
 and connect a second free address on the workspace the founder already owns, open that account's
 settings and set the daily campaign limit to 30, turn warmup on and leave it. The health score is read on Sundays and nowhere else.
 
-**This agent opens nothing in that workspace.** No connector, no API key, no call. Every step here
-is printed for the founder to press, and the numbers that come back are the numbers they read off
-the screen and say out loud. Instantly's own screens are the member's path, and they work on the
-free trial, which holds 250 contacts.
+**That is the only step in the browser, because connecting a mailbox is a sign-in to Google or
+Microsoft.** The campaign, the leads and the Sunday reads run through the founder's own Instantly
+connector. Check it off the live tool list every run, and read that list rather than a tool name
+written here. Not connected: print the click path and wait.
+
+> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
+> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
+
+The free trial holds 250 contacts, so the fifth batch fills it.
 
 ## The settings
 
@@ -44,7 +50,8 @@ Run the spam checker on step 1 before launching and take its swaps.
 **Say this out loud, because it is the most useful safety fact in the lane:** Instantly's own High
 Bounce Auto-Pause is on by default at 5%, but its help article says a campaign must send at least 200
 emails before that check runs. A founder sending 30 a day has no automatic brake for the first
-week of sending. **The founder is the brake.**
+week of sending. **You are the brake**: read the bounce off that campaign every Sunday through
+the connector, and stop the next import over 2%.
 
 ## What it costs a month
 
@@ -57,31 +64,35 @@ week of sending. **The founder is the brake.**
 Print this before the founder subscribes to anything, not after. A member on a small budget deserves
 the number in front of the step.
 
-## The import, and the button the founder presses
+## The build, in 2 calls, and the button the founder presses
 
-**Campaigns > Add new**, named for this list. Then **Leads > Add Leads > CSV**, and
-`squad/cold-list.csv` goes in there.
+- **Create the campaign**, named for this list, carrying the whole sequence at once: step 1 at
+  delay 0, step 2 at delay 3, step 3 at delay 5, the subject empty on steps 2 and 3, the footer on
+  every step, and the settings above.
+- **Add the 50 leads to that campaign**, read straight off `squad/cold-list.csv`, with
+  `skip_if_in_workspace` on so nobody already sitting in another campaign in that workspace gets
+  it twice. `references/the-list.md` carries the CSV's 8 columns and the 2 the day 1 step merges.
 
 **Never a Lead List.** Instantly gates Lead Lists to Hyper Growth and above, so a member on the
 trial or on Growth cannot open one, and leads sitting in a list are not in a campaign and send
-nothing. The CSV goes into the campaign, every time.
+nothing. The 50 go into the campaign, every time.
 
-Two checks in the importer, and nothing else: **Email** mapped to Email, and **check for duplicates**
-left on, which skips anyone already sitting in another campaign in that workspace.
-`references/the-list.md` carries the CSV's 8 columns and the 2 the day 1 step merges.
+**The campaign is created as a draft and never activated here.** `activate_campaign` is a refusal
+at any size and on any wording.
 
 The steps come from `squad/cold-messages-<that batch's go date>.md`, the footer on every one. No
 message file for that batch means beat 2 never finished, and the touches get written there rather
 than recalled here.
 
-**The bounce number is read, not called.** Once the campaign has sent, the founder reads its bounce
-rate on the campaign's own analytics screen, and over 2% nothing new goes in until it comes down.
-Sustained bounce over 2% pushes every message from that domain toward spam. Before the first
-import nothing has sent yet, so the warmup reading is the gate instead.
+**The bounce number is read off the campaign, through the connector, every Sunday.** Over 2%
+nothing new goes in until it comes down. Sustained bounce over 2% pushes every message from that
+domain toward spam. Before the first import nothing has sent yet, so the warmup reading is the
+gate instead.
 
-**Launch is the founder's, on the founder's hand.** Print what is about to go out, the daily limit,
-the window and the sending address, then stop. From the second week on the campaign is already
-running, the week's batch simply imports into it, and there is nothing to launch.
+**Launch is the founder's, on the founder's hand.** Print what was built, the 50 names in, the 3
+steps and their delays, the daily limit, the window, the sending address and the word paused, then
+stop. From the second week on the campaign is already running, the week's 50 are added to it the
+same way, and there is nothing to launch.
 
 ## The second mailbox, beat 5's move 1 only
 

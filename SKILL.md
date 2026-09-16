@@ -1,6 +1,6 @@
 ---
 name: the-cold-loop
-description: Use this when the founder is going after strangers. They say "build my outreach list", "pull my list", "/the-cold-loop list", "export my list for Instantly", "write my cold email", "send this week's batch", "this week's batch went out", "/the-cold-loop send", "read my batch", "how did the batch do", "/the-cold-loop read", "raise the daily number", "add a second town", "/the-cold-loop routine", or "continue the cold loop" (picking a stopped run back up). It builds the list of 50, writes the 3 touches with the legal footer, hands the batch over as the CSV they import into an Instantly campaign they build and leave paused while the mailbox warms, reads the numbers off finished batches, and runs the routine one move at a time. It never sends, and it refuses to write a cold message carrying no postal address and no opt-out.
+description: Use this when the founder is going after strangers. They say "build my outreach list", "pull my list", "/the-cold-loop list", "export my list for Instantly", "write my cold email", "send this week's batch", "this week's batch went out", "/the-cold-loop send", "Build my cold campaign from squad/cold-list.csv", "Is my mailbox ready?", "read my batch", "how did the batch do", "/the-cold-loop read", "raise the daily number", "add a second town", "/the-cold-loop routine", or "continue the cold loop" (picking a stopped run back up). It builds the list of 50, writes the 3 touches with the legal footer, builds the Instantly campaign through the founder's own connector off that CSV and leaves it paused while the mailbox warms, reads the numbers off finished batches through the same connector, and runs the routine one move at a time. It never sends and never presses Launch, and it refuses to write a cold message carrying no postal address and no opt-out.
 ---
 
 # The Cold Loop
@@ -160,34 +160,51 @@ that can be edited, and the postal address and the opt-out at the bottom are the
 in a hurry deletes. The campaign carries them on every send. The 2 weeks of warmup belong to the
 people who already know them, which is g4.
 
-**The campaign is built by the founder, in Instantly, the same sitting.** You open nothing in that
-workspace: no connector, no key, no call. Print the path once, in this order, then stop:
+**The campaign is built BY YOU, through the founder's own Instantly connector**, in the same
+sitting. A founder clicking through that interface gets 2 of the 4 settings wrong, and those 2
+are the ones that cost deliverability.
 
-- **Campaigns > Add new**, named for this list. Then **Leads > Add Leads > CSV**, and the file goes
-  in there. **Never a Lead List:** Lead Lists are gated to Hyper Growth and above, so a member on
-  the trial or on Growth cannot open one, and leads sitting in a list are not in a campaign and
-  send nothing.
-- The importer reads the headers and maps them. **Two checks, and nothing else: Email** mapped to
-  Email, and **check for duplicates** left on, which skips anyone already sitting in another
-  campaign in that workspace. The free trial holds 250 contacts, so the fifth batch imported fills
-  it; say that the first time the importer comes up.
-- **Sequences.** Day 1's message is step 1, `{{Reviews}}` and `{{City}}` in its first line, merged
-  off the CSV's own columns by name and by case. Then 2 more steps, 3 days to step 2 and 5 days to step 3, the subject
-  left empty on both so they thread onto the first. Run the spam checker on step 1 and take its
-  swaps. The footer stays on every step.
-- **Schedule.** The founder's own hours, Monday to Friday. Not weekends.
-- **Options**, 4 of them: stop sending on reply **on**, open tracking **off** (the pixel costs
-  deliverability, and it is why this lane has no open rate), provider matching **on**, daily limit
-  **30**, the number already on the mailbox.
-- **Then stop. Do not launch.** The campaign sits paused with 50 people in it and 3 messages
-  written, waiting on a mailbox that is not ready.
+**Check the connector first**, off the live tool list, and read that list every run rather than a
+tool name written here. Not connected: print the click path and wait.
+
+> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
+> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
+
+Then build it in 2 calls and nothing else:
+
+- **Create the campaign**, named for this list, carrying the whole sequence at once. Day 1's
+  message is step 1 with delay 0, `{{Reviews}}` and `{{City}}` in its first line, merged off the
+  CSV's own columns by name and by case. Step 2 at delay 3, step 3 at delay 5, so they land on
+  day 4 and day 9. **The subject is empty on steps 2 and 3** so they thread onto the first. The
+  footer is on every step. Set `daily_limit` 30, `stop_on_reply` true, `open_tracking` false (the
+  pixel costs deliverability, and it is why this lane has no open rate), `text_only` true, and the
+  schedule Monday to Friday on the founder's own hours.
+- **Add the 50 leads to that campaign**, read straight off `squad/cold-list.csv`, with
+  `skip_if_in_workspace` on so nobody in another campaign gets it twice. Never a Lead List: those
+  are gated to Hyper Growth and above, and leads sitting in a list send nothing.
+
+**A campaign is created as a draft and you never activate it.** `activate_campaign` is a refusal
+in this agent, at any size and on any wording. The founder presses Launch, in their own browser,
+on the first Monday the warmup health reads good. A send that no human pressed is the one mistake
+this lane cannot take back.
+
+**Then print what you built, in one screen**, so the founder can read it without opening Instantly:
+the campaign name, the 50 names in, the 3 steps and their delays, the daily limit, and the word
+paused. The free trial holds 250 contacts, so the fifth batch imported fills it; say that the
+first time.
+
+**Say this out loud the first time you build one.** Two of those settings are wrong by default in
+Instantly's own interface, open tracking and stop-on-reply, and they are the 2 that decide whether
+the mail lands and whether somebody who already answered gets touch 2 anyway.
 
 **The gate is the warmup's own health reading, and nothing else:** not a batch count, not a number
-of weeks. Every Sunday the founder reads it in Instantly and says what it says. The first Monday it
-reads good, they press Launch, and the send is theirs to press once.
+of weeks. **"Is my mailbox ready?"**, on a Sunday, reads that account's warmup health through the
+connector and answers in one word, ready or not yet, with the reading under it. The founder opens
+nothing. The first Monday it reads ready, they press Launch, and the send is theirs to press once.
 
 **Say this before the launch.** Instantly's own High Bounce Auto-Pause does not arm until a campaign
-has sent 200 emails, so for the first weeks **the founder is the brake**, and the bounce number on
+has sent 200 emails, so for the first weeks **you are the brake**: read the bounce off that
+campaign every Sunday and stop the next import over 2 percent. The bounce number on
 the campaign's own screen is what stops the next import.
 
 **The stamp, once a week.** "This week's batch went out." fills `sent` on that week's rows in
@@ -216,11 +233,15 @@ Finished: **3 numbers, people contacted, replies, calls booked**, every batch si
 table. All 3 counted in **people**, never in messages: 50 people at 3 touches is up to 150 messages,
 and a rate on messages is a third of the truth. No opens.
 
-**One source per number, and no second source.** People contacted and replies are the campaign's:
-stop and ask the founder to open that campaign in Instantly, go to Analytics, and paste step 1's
-sent count and the reply count **as they read**. Calls booked are `squad/pipeline.md`'s, counted
-here and never asked for. Instantly does not know a call happened, and this agent reaches into no
-workspace.
+**One source per number, and no second source.** People contacted and replies are the campaign's,
+and you read them yourself through the founder's Instantly connector: step 1's sent count and the
+reply count, off that campaign. **You do not ask for a number.** Calls booked are
+`squad/pipeline.md`'s, counted here, because Instantly does not know a call happened.
+
+Not connected: print the click path and wait.
+
+> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
+> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
 
 **The screen counts the campaign, not the batch,** since one campaign carries every batch ever
 loaded into it. By the fourth batch imported, step 1's sent count reads 200 for a batch of 50. On

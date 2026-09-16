@@ -29,9 +29,9 @@ Nothing to buy today.
 - **"Build my outreach list."** Monday. It asks your town and both countries, pulls 120 businesses
   for about 48 cents, and drops the chains, the rows with no email and everyone you already wrote
   to. Back come the 50 with the most reviews. Say **go**, and it writes one file,
-  `squad/cold-list.csv`, 8 columns straight off the scrape, which you read in a sheet and Instantly
-  imports as-is. **"Export my list for Instantly."** writes it again off the approved rows, without
-  pulling.
+  `squad/cold-list.csv`, 8 columns straight off the scrape, which you read in a sheet and your
+  squad loads into the campaign as-is. **"Export my list for Instantly."** writes it again off the
+  approved rows, without pulling.
 - **Day one, in Instantly:** connect the mailbox these leave from, set its daily campaign limit to
   30, turn warmup on. You read its health every Sunday and nowhere else. Nothing leaves by your
   hand while it warms, not one message. The first Monday the health reads good, you press Launch.
@@ -57,7 +57,7 @@ what is on disk and picks up at the first thing missing.
 
 ## What you get
 
-One ranked list a week as a CSV Instantly imports, 3 messages in your own voice with a footer that keeps you legal, a log that stops you emailing a town
+One ranked list a week as a CSV your squad loads into the campaign, 3 messages in your own voice with a footer that keeps you legal, a log that stops you emailing a town
 twice, a Sunday read that names one change or one hold, and a campaign sending overnight once your
 mailbox finished warming. Replies come to you, and you answer them yourself.
 
