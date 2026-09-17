@@ -1,141 +1,157 @@
-# The campaign
+# The campaign · Instantly
 
-Beat 3's Instantly detail, and beat 5's moves. One mailbox, one campaign, 30 a day, and the
-founder's hand on one word a week.
+1 output: 1 campaign, built through the founder's Instantly connector, left a Draft. The founder presses Launch.
 
-## The one honest sentence
+## The mailbox, printed once
 
-**Once the founder launches it, the send runs overnight on Instantly's servers, from their own
-mailbox, on a list they approved.** The pull still needs a person to say go, and the read still
-takes a minute on Sunday. The send is the leg that runs while they sleep.
+The first run prints this, word for word, and nothing else (the base line comes above it on a fresh run):
 
-## The gate, in one line
+```
+Before anything sends, your mailbox. You do this once:
+1. Buy a sending domain close to your business name. Never send cold email from the domain your clients write to.
+2. Add 1 Google Workspace seat on it (Business Starter, $8.40 a month on the Flexible plan) and make 1 address. Google's setup has you add 2 records of its own, 1 to verify the domain and 1 MX record to turn on Gmail. Add both the way it shows you.
+3. At your domain registrar, add these 3 records, then forward the domain to your real website:
+   SPF: a TXT record on @, v=spf1 include:_spf.google.com ~all
+   DMARC: a TXT record on _dmarc, v=DMARC1; p=none
+   DKIM: Google gives you this key 24 to 72 hours after Gmail turns on (Google Admin, Apps, Google Workspace, Gmail, Authenticate email). Add it at your registrar, then click Start authentication in Google Admin.
+4. In Instantly: Email Accounts, Add new, Google, and copy the Client ID. In Google Admin: Security, API controls, Manage app access, Configure new app, paste the Client ID, pick Instantly, set it Trusted. Back in Instantly, sign in with that address, set the daily limit to 30, and turn warmup on. Instantly's free trial runs 14 days, then pauses warmup and deletes the trial account, and I can only reach Instantly on Growth ($47 a month), where Instantly puts its API. Buy Growth before you connect Instantly to Claude.
+5. Tell me the sending address, or say not yet. I check your records and print pass or fail.
+```
 
-The warmup's own health reading, read on Sunday. A new sending address cannot open a campaign; it
-gets flagged. The founder turns warmup on in Instantly on day one, the squad builds the campaign
-the same sitting through the founder's connector and leaves it **paused**, and every Sunday
-"Is my mailbox ready?" reads the health through that connector. The first Monday it reads ready,
-the founder presses Launch. One reading, one day a week, and nothing leaves by hand in the meantime.
+## The records
 
-## The account, by the founder's hand
+For the domain after the @ of the sending address. macOS and Linux use `dig +short TXT <name>` (`MX` for
+the MX row); Windows uses `nslookup -type=TXT <name>` (`-type=MX`).
 
-Day one, in this order, on Instantly's own screens: make the account, **Email Accounts > Add new**
-and connect a second free address on the workspace the founder already owns, open that account's
-settings and set the daily campaign limit to 30, turn warmup on and leave it. The health score is read on Sundays and nowhere else.
+First the NS record: `dig +short NS <domain>`, Windows `nslookup -type=NS <domain>`. No nameserver comes
+back: the domain is not registered, and no other record is looked up.
 
-**That is the only step in the browser, because connecting a mailbox is a sign-in to Google or
-Microsoft.** The campaign, the leads and the Sunday reads run through the founder's own Instantly
-connector. Check it off the live tool list every run, and read that list rather than a tool name
-written here. Not connected: print the click path and wait.
-
-> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
-> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
-
-The free trial holds 250 contacts, so the fifth batch fills it.
-
-## The settings
-
-| Setting | Value | Why |
+| Record | Name looked up | Pass |
 |---|---|---|
-| Stop sending on reply | on | a reply ends the sequence for that person. Nobody gets touch 2 after answering |
-| Open tracking | **off** | the pixel costs deliverability, and it is why this lane has no open rate |
-| Provider matching | **on** | Google mailboxes into Google inboxes lands better |
-| Daily limit | 30, the same number already set on the mailbox | one mailbox sending 30 a day reads as a person |
-| The steps | 3, waiting 3 days then 5 so they land on day 4 and day 9, the subject left empty on steps 2 and 3 | an empty subject threads them onto the first, so it reads as one conversation |
-| The schedule | the founder's own hours, Monday to Friday | mail arriving at 3am from a one-person business reads as what it is |
-| The footer | on every step | the postal address and the opt-out do not become optional here |
+| MX | `<domain>` | a value containing `google.com` |
+| SPF | `<domain>` | a TXT value starting `v=spf1` |
+| DKIM | `google._domainkey.<domain>` | a TXT value starting `v=DKIM1` |
+| DMARC | `_dmarc.<domain>` | a TXT value starting `v=DMARC1` |
 
-Run the spam checker on step 1 before launching and take its swaps.
+Print 4 lines, `MX: pass`, `SPF: pass`, `DKIM: fail`, `DMARC: pass`. A DKIM fail adds 1 line: "DKIM comes
+24 to 72 hours after Gmail turns on. Add it then, click Start authentication, and tell me the address again."
+Any other fail adds 1 line: "Add that record at your registrar. A new record can take a few hours to show.
+Then tell me the address again."
 
-**Say this out loud, because it is the most useful safety fact in the lane:** Instantly's own High
-Bounce Auto-Pause is on by default at 5%, but its help article says a campaign must send at least 200
-emails before that check runs. A founder sending 30 a day has no automatic brake for the first
-week of sending. **You are the brake**: read the bounce off that campaign every Sunday through
-the connector, and stop the next import over 2%.
+## The connector
 
-## What it costs a month
+Loaded when tools ending in `list_accounts`, `create_campaign`, `update_campaign`,
+`add_leads_to_campaign_or_list_bulk`, `get_campaign` and `list_leads` are on the list. Read the live list
+every run. Missing: print this, word for word, and stop.
 
-| Item | Cost |
+```
+Your campaign needs the Instantly connector, and it isn't connected yet. It runs on Instantly's API, which comes with Growth ($47 a month). 3 steps:
+1. In Instantly: Settings, Integrations, API Keys, Create API Key, scope All. Copy it.
+2. In Claude, click Customize, then Connectors, then +, then Add custom connector.
+3. Name it Instantly. URL: https://mcp.instantly.ai/mcp/<your API key>. Click Add. That URL works like a password: never share it.
+Then quit Claude Code, open it again in this folder, and say "<the line you said>" again.
+```
+
+Never print the key or the URL with the key in it.
+
+## The build: `create_campaign`
+
+| Field | Value |
 |---|---|
-| Instantly, once the free trial's 250 contacts run out | the workspace's own billing screen names the price. Read it there before subscribing; the trial itself costs nothing, and the fifth batch imported is what fills it |
-| A second sending address on the workspace the founder already owns, beat 5's move 1 | free |
-| Apify, a weekly 120-place pull | about $2 a month, inside the free $5 credit |
+| `name` | `Cold · <WHO line 1> · <today>` |
+| `sequences` | 1 sequence, 3 steps, `type` "email", 1 variant each, off `references/the-messages.md` |
+| step delays | step 1 `delay` 3, step 2 `delay` 5, step 3 `delay` 0 |
+| subjects | day 1's subject on step 1, `""` on steps 2 and 3 |
+| `body` | HTML, 1 `<div>` a line, `<div><br /></div>` for a blank line |
+| `email_list` | [the sending address] |
+| `daily_limit` | 30 |
+| `stop_on_reply` | true |
+| `text_only` | true |
+| `open_tracking` | false |
+| `link_tracking` | false |
+| `campaign_schedule` | Monday to Friday, 09:00 to 17:00, in the list town's time zone |
 
-Print this before the founder subscribes to anything, not after. A member on a small budget deserves
-the number in front of the step.
+**The delays.** In Instantly the delay on a step is the wait before the NEXT step. 3, 5, 0 lands the emails on
+about day 1, day 4 and day 9; a wait that ends on a weekend sends on Monday. The connector's own field note reads "before this step"; it is wrong, and 0, 3, 5 sends
+day 4's email on day 1.
 
-## The build, in 2 calls, and the button the founder presses
-
-- **Create the campaign**, named for this list, carrying the whole sequence at once: step 1 at
-  delay 0, step 2 at delay 3, step 3 at delay 5, the subject empty on steps 2 and 3, the footer on
-  every step, and the settings above.
-- **Add the 50 leads to that campaign**, read straight off `squad/cold-list.csv`, with
-  `skip_if_in_workspace` on so nobody already sitting in another campaign in that workspace gets
-  it twice. `references/the-list.md` carries the CSV's 8 columns and the 2 the day 1 step merges.
-
-**Never a Lead List.** Instantly gates Lead Lists to Hyper Growth and above, so a member on the
-trial or on Growth cannot open one, and leads sitting in a list are not in a campaign and send
-nothing. The 50 go into the campaign, every time.
-
-**The campaign is created as a draft and never activated here.** `activate_campaign` is a refusal
-at any size and on any wording.
-
-The steps come from `squad/cold-messages-<that batch's go date>.md`, the footer on every one. No
-message file for that batch means beat 2 never finished, and the touches get written there rather
-than recalled here.
-
-**The bounce number is read off the campaign, through the connector, every Sunday.** Over 2%
-nothing new goes in until it comes down. Sustained bounce over 2% pushes every message from that
-domain toward spam. Before the first import nothing has sent yet, so the warmup reading is the
-gate instead.
-
-**Launch is the founder's, on the founder's hand.** Print what was built, the 50 names in, the 3
-steps and their delays, the daily limit, the window, the sending address and the word paused, then
-stop. From the second week on the campaign is already running, the week's 50 are added to it the
-same way, and there is nothing to launch.
-
-## The second mailbox, beat 5's move 1 only
-
-The signal opens it: one batch whose first line booked 2 or more calls, or one paying client from
-this list, read off `squad/pipeline.md`. Never before.
-
-- **A second free address on the workspace the founder already owns.** It goes into warmup the day
-  it is made and onto the campaign about 2 weeks later, when its own health reads good, the same
-  gate the first mailbox passed.
-- The daily limit rises by the new mailbox's own number, never the first mailbox's, and the founder
-  raises it in Instantly.
-- **Do not send cold from the address paying clients reply to.** Both mailboxes stay addresses
-  clients do not write to.
-- A second domain waits until both mailboxes are full: 14 days sending nothing while SPF, DKIM and
-  DMARC settle and the domain ages, then a ramp over about 6 weeks. Two free addresses carry this
-  lane long past where a member is today.
-
-## What is never built
-
-An Apify schedule: the Apify MCP publishes no schedule tool, and a weekly pull takes minutes by hand
-in the same session where the list is approved. A scheduled task for the send: it is skipped
-whenever the laptop sleeps and fires when the lid opens, which is the moment the founder could type
-the command. An auto-reply agent: every reply is answered by the founder, in their own words, with
-`the-close`'s draft in front of them, because a stranger wrote back to a person.
-
-**The standing rule, quoted wherever a schedule comes up:** a routine that only reads, only drafts or
-only reduces spend may be scheduled. A routine that sends, spends more or publishes never runs
-unattended.
-
-## The file
-
-`squad/outreach-routine.md`, written by beat 5:
+The schedule, in this shape:
 
 ```
-# Outreach routine
-opened <date> on <the signal: 2 calls off batch <go date>'s first line | a paying client from batch <go date>>
-
-Campaign: <name> · launched <date the founder pressed Launch>
-Mailboxes: <address> at <n> a day · <second address, or none yet> at <n> a day
-Move 1, the daily number: <date, or not yet> · <what was added>
-Move 2, the second town: <date, or not yet> · <town>
-Cost a month: <total, itemised>
-
-The week: Monday the pull and the rank, you say go, the campaign keeps sending, Sunday the read.
-Replies: by your hand, always.
+{"schedules":[{"name":"Weekdays","timing":{"from":"09:00","to":"17:00"},"days":{"1":true,"2":true,"3":true,"4":true,"5":true},"timezone":"America/Chicago"}]}
 ```
+
+`timezone` is the list town's, as a name like `America/Chicago`. Refused: the nearest one Instantly accepts.
+
+A change from the Sunday read goes in through `update_campaign` on the same `id`, with all 3 steps and the
+same delays.
+
+## The leads: `add_leads_to_campaign_or_list_bulk`
+
+- `campaign_id` the campaign's id, `skip_if_in_workspace` true. Never `list_id`: leads in a list send nothing.
+- 1 lead a row: `email`, `company_name`, `website`, `phone`, and `custom_variables`
+  `{"Reviews": <Reviews>, "City": <City>, "Batch": <Batch>}`.
+- `Batch` is what lets Sunday's read count each batch in people.
+
+## The read-back
+
+`get_campaign`, then 1 screen, off what it returns and off the add call's reply for the 2 lead counts, never
+off what was sent:
+
+```
+Campaign: <name>
+Status: <Draft | Active | Paused | Completed>
+Sender: <email_list off get_campaign, or (none attached) when the reply carries none>
+Emails: 3, with a wait of 3 days, then 5 days
+30 a day · stop on reply · text only
+Monday to Friday, 9 to 5, <time zone>
+Leads added: <n>, skipped: <n> (already in your workspace)
+Built, not launched.
+```
+
+Status 0 is Draft, 1 Active, 2 Paused, 3 Completed. The last line prints only on a Draft; an Active campaign
+ends on "Added to your running campaign."
+
+The first build adds 2 lines:
+
+```
+You press Launch in Instantly yourself, the first time "Is my mailbox ready?" says Ready.
+Instantly's own bounce auto-pause only starts after a campaign has sent 200 emails. Until then, "Read my batch." on Sunday is your brake.
+```
+
+## "Is my mailbox ready?"
+
+Off `list_accounts` for the sending address. Ready = 14 or more whole days since `timestamp_warmup_start`,
+and `stat_warmup_score` above 90. Both, because Instantly's own rule is both: a new mailbox can read 100 on
+day 1. `warmup_status` not 1 means warmup is off: Not yet, and "Turn warmup on for <address> in Instantly."
+
+```
+Not yet.
+Warmup: <n> days (needs 14). Score: <n> (needs above 90).
+```
+
+`1 day` when the count is 1.
+
+```
+Ready.
+Warmup: <n> days. Score: <n>.
+```
+
+Ready, and the campaign still reads Draft, adds the Launch line and the yes:
+
+```
+Press Launch on <campaign name> in Instantly yourself.
+When a reply says yes:
+1. /the-demo <Company name>, <Website> off that row of squad/cold-list.csv, or his Instagram link when you sell content.
+2. Record a Loom of the demo, under 2 minutes, your face on, and give /the-demo the link.
+3. /the-close. THE MESSAGE is rewritten for him, with the Loom and your booking link.
+4. Fill anything still in square brackets, like his first name, off his reply. Then send THE MESSAGE yourself, as your reply in that same Instantly thread.
+The call runs off squad/sales.md.
+```
+
+## What never happens here
+
+- `activate_campaign` and `campaigns_bulk_activate` are refused, at any size and on any wording.
+- No write to the mailbox: not its warmup, not its daily limit, not its status.
+- No lead is deleted. A lead who said stop stays in the workspace, and that keeps them out of every later batch.
+- The only writes to Instantly are `create_campaign`, `update_campaign` and `add_leads_to_campaign_or_list_bulk`.

@@ -1,68 +1,36 @@
-# The Cold Loop: install in 60 seconds
+# The Cold Loop
 
-This agent is a base. Once you have done it your way, tell your squad "update the agent to do it
-like this."
+This agent is a base. Once you have done it your way, tell your squad "update the agent to do it like this."
 
-The part of an Execution Squad that goes at strangers: 50 named businesses you have never met,
-scraped with their email, their phone and their review count, the 3 messages they get, the campaign
-that sends them, and a Sunday read off finished batches.
+It finds the businesses you sell to on Google Maps and emails them through Instantly, 50 new ones at a time.
+It writes `squad/cold-list.csv` and builds your Instantly campaign. You press Launch.
 
-It never sends anything. Instantly does, once you press Launch.
+**Install.** Installed with the one line on aichrislee.com/free (products/squad/install-line.md), then quit
+and reopen Claude Code.
 
-## What to bring
+**What you need.**
 
-Your offer document at `squad/business.md` (the draft from your warm calls is enough). A town and a
-trade. **A real postal address**, because every cold message carries one by law, at any volume, with
-no exception for business email. Working from home, buy a mailbox service first: that address goes
-on all 50. And a second free address on the workspace you own, which is the mailbox these leave
-from.
+- `squad/business.md`. Run /the-winning-offer first.
+- Apify. The free plan gives $5 of credit a month, about 6 zip codes. Not connected: the agent gives you the
+  1 line that connects it.
+- A sending domain with 1 Google Workspace seat on it ($8.40 a month). The first run prints the setup and
+  checks your records.
+- Instantly Growth ($47 a month), with its connector in Claude. The agent reaches Instantly through its API,
+  which comes with Growth, so you buy it before you connect. The free trial runs 14 days, then pauses warmup
+  and deletes the trial account. Growth holds 1,000 contacts in total, about 20 weeks of 50.
+- A postal address for the footer. A P.O. box works.
 
-## Install
+**Run it.**
 
-Drop this whole folder, `references/` included, into `.claude/skills/` in your business folder,
-then quit and reopen Claude Code. Two tools: **Apify**, wired with your own token the way the
-Winning Offer lesson wired it, and an **Instantly** account, whose free trial holds 250 contacts.
-Nothing to buy today.
+- "Build my outreach list." It prices the pull first. Back come 50 businesses you have not emailed, most
+  Google reviews first. Say go.
+- "Build my cold campaign." 3 emails off your offer page, 3 and then 5 days apart, asking if you can
+  make them something free. Change any word, say yes, and it builds the campaign in Instantly. Built, not launched.
+- "Is my mailbox ready?" Ready means 14 days of warmup and a score above 90. Then you press Launch.
+- "Read my batch." On Sunday. Contacted, replied and bounced for every batch, the yeses and calls you type,
+  and 1 change for the week.
 
-## Run it
+When a reply says yes: /the-demo for that business, a Loom of the demo, /the-close, and you send the message
+yourself in the same Instantly thread.
 
-- **"Build my outreach list."** Monday. It asks your town and both countries, pulls 120 businesses
-  for about 48 cents, and drops the chains, the rows with no email and everyone you already wrote
-  to. Back come the 50 with the most reviews. Say **go**, and it writes one file,
-  `squad/cold-list.csv`, 8 columns straight off the scrape, which you read in a sheet and your
-  squad loads into the campaign as-is. **"Export my list for Instantly."** writes it again off the
-  approved rows, without pulling.
-- **Day one, in Instantly:** connect the mailbox these leave from, set its daily campaign limit to
-  30, turn warmup on. You read its health every Sunday and nowhere else. Nothing leaves by your
-  hand while it warms, not one message. The first Monday the health reads good, you press Launch.
-- **"Write my cold email."** It asks your postal address and which mailbox these leave from. Back
-  come 3 messages, day 1, day 4, day 9, your address and an opt-out under each. Day 1 opens on that
-  row's own review count and town. Change any word that is not yours.
-- **Then drop the CSV into a campaign**, the same sitting. Campaigns, Add new. Leads, Add Leads,
-  CSV. Check 2 things: Email mapped to Email, check for duplicates left on. Build the 3 steps, 2
-  days apart, subject empty on the last 2, and leave the campaign paused. Never a Lead List: those
-  are locked to Instantly's top tiers and a campaign is what sends.
-- **"This week's batch went out."** Stamps the log, `squad/outreach-sent.md`, and asks who replied
-  this week, so the next list drops everyone you already wrote to and Sunday has a number to read.
-- **"Read my batch."** Sunday, before your post. It stops for 2 numbers off your campaign's
-  Analytics screen, the sent count and the reply count, and counts the calls off your pipeline
-  itself. Back come 3 numbers, the rung that broke, and one line: do this week, or hold. Two of
-  those numbers, people contacted and replies, are what your 4-week plan takes.
-- **"Raise the daily number."** then **"Add a second town."** In that order, one a week, never 2.
-  The routine opens on one count: a batch whose first line booked 2 or more calls, or one paying
-  client from this list. Replies are never automated, at any size.
-
-Stopped halfway, or closed the laptop? Say **"continue the cold loop"** in a new window. It reads
-what is on disk and picks up at the first thing missing.
-
-## What you get
-
-One ranked list a week as a CSV your squad loads into the campaign, 3 messages in your own voice with a footer that keeps you legal, a log that stops you emailing a town
-twice, a Sunday read that names one change or one hold, and a campaign sending overnight once your
-mailbox finished warming. Replies come to you, and you answer them yourself.
-
-## What comes next
-
-The lane that turns proof into volume, and the one that spends money to buy speed, one episode at a
-time. Subscribe (the link under every episode) and each part lands in your inbox the day it goes
-live.
+It never sends, never presses Launch, and never answers a reply. You do.

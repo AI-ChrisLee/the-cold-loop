@@ -1,330 +1,145 @@
 ---
 name: the-cold-loop
-description: Use this when the founder is going after strangers. They say "build my outreach list", "pull my list", "/the-cold-loop list", "export my list for Instantly", "write my cold email", "send this week's batch", "this week's batch went out", "/the-cold-loop send", "Build my cold campaign from squad/cold-list.csv", "Is my mailbox ready?", "read my batch", "how did the batch do", "/the-cold-loop read", "raise the daily number", "add a second town", "/the-cold-loop routine", or "continue the cold loop" (picking a stopped run back up). It builds the list of 50, writes the 3 touches with the legal footer, builds the Instantly campaign through the founder's own connector off that CSV and leaves it paused while the mailbox warms, reads the numbers off finished batches through the same connector, and runs the routine one move at a time. It never sends and never presses Launch, and it refuses to write a cold message carrying no postal address and no opt-out.
+description: Use this when the founder goes after strangers with cold email. They say "Build my outreach list.", "Build my cold campaign.", "Is my mailbox ready?" or "Read my batch." It pulls 50 new businesses a go off Google Maps into squad/cold-list.csv, builds 1 Instantly campaign as a Draft through the founder's own connector, answers whether the mailbox is ready by Instantly's own rule, and counts every batch on Sunday. It never sends, never presses Launch, and never writes a cold email without a postal address and an opt-out.
 ---
 
 # The Cold Loop
 
-**Your first message on a fresh run carries this line, once:**
+2 outputs: `squad/cold-list.csv`, 50 new rows a go, and 1 Instantly campaign, built as a Draft through
+the founder's connector. The founder presses Launch.
+
+**The first message of a fresh run** (no `squad/cold-list.csv` on disk) carries this line, word for word:
 
 > This agent is a base. Once you have done it your way, tell your squad "update the agent to do it like this."
 
-Strangers, one town and one trade at a time: get the list, send, read, make it a routine.
+Open the 4 files in `references/` first: `the-list.md`, `the-messages.md`, `the-campaign.md`,
+`the-numbers.md`. Any missing: say the agent folder came without its `references/`, and stop.
 
-**You never send.** You write and you hand over. Instantly's servers send only the batch the
-founder approved, from their own mailbox, and the founder answers every reply by hand after
-`the-close` sorts it.
+## The 4 lines
 
-Two refusals. Every cold message carries a real postal address and a working opt-out, at any
-volume, with no exception for business-to-business mail. And a country that requires consent before
-commercial mail stops the run.
-
-`.claude/squad-roots.md` is the per-repo instance file every member-run agent reads first, and its
-values win over the `squad/` paths below, which are worked examples. `<date>` is `YYYY-MM-DD`, and
-a batch is named by the date the founder said go.
-
-## The modes
-
-| Mode | The founder says |
+| The founder says | What comes back |
 |---|---|
-| list | "build my outreach list", "pull my list", "export my list for Instantly", `/the-cold-loop list` |
-| send | "write my cold email", "send this week's batch", "this week's batch went out", `/the-cold-loop send` |
-| read | "read my batch", "how did the batch do", `/the-cold-loop read` |
-| routine | "raise the daily number", "add a second town", `/the-cold-loop routine` |
+| "Build my outreach list." | 50 new businesses appended to `squad/cold-list.csv` |
+| "Build my cold campaign." | the campaign in Instantly, built, not launched |
+| "Is my mailbox ready?" | Ready or Not yet, with the 2 numbers under it |
+| "Read my batch." | every batch counted, 1 change line, a section in `squad/outreach-read.md` |
 
-**Resuming.** A bare `/the-cold-loop` or "continue the cold loop" reads the outputs, never a
-session's memory, and continues at the first thing missing: no `squad/cold-list.csv`, or no batch
-for it in `squad/outreach-sent.md`, section 1; no `squad/cold-messages-<go date>.md` for that batch,
-2; no campaign built for it, 3; a batch whose last name went out 9 or more days ago and no read
-section, 4. A batch already named in `squad/outreach-sent.md` is approved: never re-pull it, never
-re-rank it. Say in one line where you picked up.
+Every line reads the files first, so a stopped run picks up when the founder says the same line again.
 
-## The files
+## Read and write
 
-| Path | What it holds |
-|---|---|
-| `squad/cold-list.csv` | the newest approved batch, 50 rows ranked by review count, in Instantly's import shape |
-| `squad/cold-messages-<go date>.md` | that batch's 3 touches, the footer on each |
-| `squad/outreach-sent.md` | one row per company per touch, `batch · company · touch · sent · replied`. This agent's memory, and what every pull dedups against |
-| `squad/outreach-read.md` | a section per finished batch, appended, plus the winner line |
-| `squad/outreach-routine.md` | the signal, each move and its date, the mailboxes, the monthly cost |
-| `.claude/squad-roots.md` | the `postal address`, `cold list town` and `sending address` rows, nothing else |
+- `squad/business.md`: WHO line 1, THE SENTENCE, THE PROBLEM, THE SHAPE, BUYER WORDS. Missing: say
+  "Run /the-winning-offer first. Your list and your emails are built off that page." and stop.
+- `.claude/squad-roots.md`: `founder name`, `voice sample`, and this agent's 4 rows: `cold list`, `postal address`,
+  `sending address`, `cold campaign`.
+- Writes `squad/cold-list.csv`, `squad/outreach-read.md` and those 4 rows. Nothing else.
 
-Nothing is registered off disk. The Instantly account, the warmup, the import and the launch are
-the founder's own hands on Instantly's own screens; this agent writes files and never reaches into
-that workspace.
+## The first run: the mailbox
 
-## Before any mode
+No `sending address` row: the first message of any of the 4 lines is the base line (on a fresh run) and
+the mailbox setup from `references/the-campaign.md`, word for word, which ends on "Tell me the sending
+address, or say not yet." Nothing else. The line's own questions come in the next message. "Not yet" writes
+the row as `not yet`, the setup is never printed again, and the line goes on.
 
-- Four files next to `SKILL.md` must open: `references/the-list.md`, `references/the-messages.md`,
-  `references/the-numbers.md`, `references/the-campaign.md`. Any missing: stop, and say the folder
-  was downloaded without its `references/`.
-- In `list` mode, **where the run will pull**, probe Apify with one free `search-actors` call.
-  Never probe with `call-actor`: that starts a billed run. Not wired: stop and send them to the
-  token paste in g5. "Export my list for Instantly." pulls nothing, so it probes nothing.
-- Read `.claude/squad-roots.md`, `squad/business.md` and the mode's own files, and say in one line
-  what opened. No `squad/business.md`: stop in `list` and `send`, since there is no ask to make of
-  a stranger yet, and point at g4 or g5. `read`, `routine` and the export run without it, since the
-  export rewrites a file off rows the founder already approved.
+The moment the founder names a sending address:
 
-## 1 The list
+1. A free address (gmail.com, outlook.com, hotmail.com, yahoo.com, icloud.com): refuse in 1 line. Cold email
+   leaves from its own sending domain.
+2. The domain has no NS record (`references/the-campaign.md`): say "<domain> is not registered yet. Buy it
+   first, then tell me the address again." Write no row, and stop.
+3. The domain shows up anywhere in `squad/` or `.claude/squad-roots.md` outside `squad/cold-list.csv` and this
+   agent's 4 rows (a booking link, the voice sample, the founder's own site): say "<domain> is the domain your
+   clients already know. Cold email leaves from a second domain bought only for it. Name that address, or say
+   not yet." Write no row, and stop.
+4. Look up MX, SPF, DKIM and DMARC for its domain (`references/the-campaign.md`) and print pass or fail
+   for each.
+5. Write it to the `sending address` row.
 
-Mode `list`. `references/the-list.md` runs this section: the drops, the rank, the file. Read it
-first.
+## 1. "Build my outreach list."
 
-**Ask 2 things in one message,** and only what the roots file does not already hold: the town,
-written to the roots file as `cold list town`, and where the founder is and where this list is. The
-postal address belongs to section 2, asked in the sitting where the message that carries it is
-written.
+1. WHO line 1 is not a business with an address on Google Maps: say "Google Maps lists businesses with an
+   address. <WHO line 1> is not one, so cold email has no list here." and stop.
+2. The newest section of `squad/outreach-read.md` carries a `Hold:` line and is 7 days old or newer: print
+   that line and stop.
+3. Apify loaded: tools ending in `fetch-actor-details` and `call-actor` are on the list. Missing: print the
+   Apify message in `references/the-list.md` and stop.
+4. `fetch-actor-details` on `compass/crawler-google-places`, input schema and pricing. Work out the price of
+   1 zip code (`references/the-list.md`).
+5. 1 message, asking only what the rows do not hold: the town; the country the list is in and the country
+   the founder is in. It ends on the price line (`references/the-list.md`), and the answer is the yes.
+6. Either country requires consent before commercial email: the country stop (`references/the-list.md`).
+   No list.
+7. On yes: the pull, the drops, the rank (`references/the-list.md`). Print the counts in 1 line and the 50
+   numbered, then "Say go."
+8. On go: append the rows to `squad/cold-list.csv`, today's date in `Batch`. Print the path and the rows
+   added. Then "Next: Build my cold campaign."
 
-**If either country requires consent before commercial email to a business, stop.** Germany is the
-named example: UWG Section 7(2) requires prior express consent for business advertising mail, and
-exposure runs up to EUR 300,000 per case. Say the rule in 2 lines, say plainly that this is not
-legal advice, and write no list until the founder says they have a lawful basis. A footer does not
-fix a consent rule.
+## 2. "Build my cold campaign."
 
-Then the work, alone. Run `fetch-actor-details` on `compass/crawler-google-places` every time
-before calling it and build the input off the live schema: `<trade> in <town>`, **capped at 120
-places**, about $0.48. **Never enable the business leads or email verification add-ons without
-printing the price first:** $0.10 each on the free tier against a $5 monthly credit, so 200
-verifications is $20, 4 times the whole credit. Then the drops, the rank, the top 50.
+1. No `squad/cold-list.csv`: say "Say Build my outreach list. first." and stop.
+2. The Instantly connector (`references/the-campaign.md`). Missing: print its message and stop.
+3. 1 message, asking only what the rows do not hold: the postal address, with the law line in
+   `references/the-messages.md`; the sending address when the row reads `not yet`. On a whole postal address
+   (`references/the-messages.md`), write the `postal address` row first, then check the sending address, so a
+   stop on the address never loses the postal address. On a postal address missing its town, state or zip
+   code, still check a sending address named in the same reply, so both stops come in 1 message.
+4. `list_accounts` with the sending address. Not in Instantly: say "Add <address> in Instantly first: Email
+   Accounts, Add new, Google, the Client ID trusted in Google Admin, daily limit 30, warmup on." and stop.
+5. No `cold campaign` row: write the 3 emails (`references/the-messages.md`), print them whole, then "Change
+   any word, or say yes." On yes: `create_campaign` with the settings in `references/the-campaign.md`, and
+   write the row `<name> · <id> · emails <today> · batches none`.
+6. A `cold campaign` row, and the newest section of `squad/outreach-read.md` carries a `Change:` line dated
+   after the row's `emails` date: write that change (`references/the-messages.md`), print day 1 whole, then
+   "Change any word, or say yes." On yes, when the campaign is still a Draft or no lead is left waiting for
+   day 1 (`list_leads`, `FILTER_VAL_NOT_CONTACTED`): `update_campaign` with the 3 steps, delays 3, 5, 0, and
+   set `emails` on the row to today. A lead still waiting: say "The change goes in next week, once every
+   lead has had day 1."
+7. Add every row whose `Batch` date is not on the row's `batches`, through
+   `add_leads_to_campaign_or_list_bulk` with `skip_if_in_workspace` (`references/the-campaign.md`), then add
+   those dates to `batches`. No new rows: say "Nothing new to add." The add refuses leads for the plan's
+   contact limit: say "Instantly Growth holds 1,000 contacts in total, and this workspace is full.
+   Hypergrowth ($97 a month) holds 25,000. Nothing was deleted, so everyone who said stop stays out." and stop.
+8. `get_campaign`, with the add call's reply for the lead counts, and print the read-back screen
+   (`references/the-campaign.md`). The first build adds its
+   2 lines: who presses Launch, and the bounce brake.
 
-**Then the dedup, and it is load-bearing.** Drop every address already in `squad/outreach-sent.md`,
-including every row marked `stop`, or the second pull re-pulls the first pull's people.
+## 3. "Is my mailbox ready?"
 
-Print the 50 numbered: company, review count, email. **One answer moves the list: go**, which
-stamps the batch with today's date and names it.
+1. The Instantly connector. Missing: print its message and stop.
+2. The `sending address` row reads `not yet`: ask for it, and check the records on the answer.
+3. `list_accounts` with that address: `timestamp_warmup_start`, `stat_warmup_score`, `warmup_status`.
+   Not there: the "Add <address> in Instantly first" line, and stop.
+4. Ready = 14 or more whole days since warmup started, and a score above 90. Both. Print the verdict and the
+   2 numbers (`references/the-campaign.md`).
+5. Ready, and `get_campaign` still reads Draft: add the Launch line and what to do when a reply says yes.
+   Ready with no `cold campaign` row: add "Next: Build my cold campaign."
 
-**The go also writes `squad/cold-list.csv`,** the same approved rows in the shape Instantly's
-importer reads, 8 headers in this order:
-`Email,First name,Last name,Company name,Website,Phone,Reviews,City`. **Every one of the 8 is a
-field the pull returned.** No column carries a judgment about what a business needs, because a
-scrape cannot see that. **The go also writes the batch into `squad/outreach-sent.md`,** one row per
-company at touch 1 with `sent` empty, which is where the batch gets its name. "Export my list for
-Instantly." rewrites the CSV off those rows and pulls nothing.
+## 4. "Read my batch."
 
-Later lists pull on the `cold list town` and the trade the offer document gives; a second town is
-the routine's move. **A town that cannot leave 50 standing widens the town, never the trade.** Pull
-the next ring of suburbs, say in one line how far you went, and keep the trade exactly as the offer
-document gives it: one trade is what lets the same words land on every row.
-
-## 2 The messages
-
-Mode `send`, once a batch. `references/the-messages.md` carries the cage. Read it before you write.
-
-**It asks 2 things in one message,** and only what the roots file does not already hold. The postal
-address that goes under all 3, written as `postal address`: say in one line that a home address
-leaves on every message and cannot be called back, so a mailbox service comes first. And which
-mailbox these leave from, written as `sending address`, **and the answer is a second free address on
-the workspace they already own**, never the address paying clients reply to, whether or not they
-have clients yet: a client landed off this lane in week 3 writes back to the address they were
-emailed from.
-
-Day 1 runs under 80 words. **Its first line is that row's own review count and town, merged:
-`{{Reviews}}` and `{{City}}`.** That is what the pull knows to be true of them and of nobody else on
-the list, and it is the whole opening. One ask, answerable yes or no, and the ask is 20 minutes on a
-call. Then day 4 and day 9, each carrying something the last did not say. Never a bump. No price in any of the 3: the price is the call's, and
-the call is `the-close`'s.
-
-**Twenty minutes needs a 20-minute door.** The cal.com link g6 made carries a 60-minute event type.
-Say once, in one line, that the founder adds a 20-minute event type to that same link and sends that
-one in the reply. A stranger who agreed to 20 minutes and lands on an hour books nothing.
-
-**The footer goes on all 3, and this is a refusal.** The founder's valid physical postal address
-and a clear opt-out, honoured within 10 business days. CAN-SPAM has no volume threshold and, in the
-FTC's own words, makes no exception for business-to-business email; each message in violation runs
-up to $53,088. Say that once, in one line, the first time. No address, no message, and say why in
-one line. The opt-out is real: an address replying "stop" is marked in `squad/outreach-sent.md`,
-and the dedup drops it from every future list.
-
-Print the 3 whole and stop on one line: change any word that is not yours. On their word, write
-them to `squad/cold-messages-<this batch's go date>.md`, the footer on each. That file is what the
-campaign's 3 steps get built from.
-
-## 3 The send
-
-Mode `send`. Instantly is the spine and it starts on day one: the mailbox goes into warmup that
-morning, the campaign is built the same sitting and left **paused**, and it launches the first
-Monday the warmup health reads good. `references/the-campaign.md` carries the warmup, the import,
-the settings, the costs; `references/the-messages.md` carries the batch's message file and the log.
-
-**Day one, before a message goes out.** Print these 4 steps and let the founder do them on
-Instantly's own screens: make the account; make a second free address on the workspace they already
-own and connect that, never the address paying clients reply to, written to the roots file as
-`sending address`; set that account's daily campaign limit to 30; turn warmup on. It runs about 2
-weeks and nothing touches it again. The health score is read on Sundays and nowhere else.
-
-**Nothing leaves by the founder's hand, at any point, and this is a refusal.** No drafts, no 10 a
-morning, no mail connector. Say why in one line the first time: a message sent by hand is a message
-that can be edited, and the postal address and the opt-out at the bottom are the 2 lines a founder
-in a hurry deletes. The campaign carries them on every send. The 2 weeks of warmup belong to the
-people who already know them, which is g4.
-
-**The campaign is built BY YOU, through the founder's own Instantly connector**, in the same
-sitting. A founder clicking through that interface gets 2 of the 4 settings wrong, and those 2
-are the ones that cost deliverability.
-
-**Check the connector first**, off the live tool list, and read that list every run rather than a
-tool name written here. Not connected: print the click path and wait.
-
-> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
-> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
-
-Then build it in 2 calls and nothing else:
-
-- **Create the campaign**, named for this list, carrying the whole sequence at once. Day 1's
-  message is step 1 with delay 0, `{{Reviews}}` and `{{City}}` in its first line, merged off the
-  CSV's own columns by name and by case. Step 2 at delay 3, step 3 at delay 5, so they land on
-  day 4 and day 9. **The subject is empty on steps 2 and 3** so they thread onto the first. The
-  footer is on every step. Set `daily_limit` 30, `stop_on_reply` true, `open_tracking` false (the
-  pixel costs deliverability, and it is why this lane has no open rate), `text_only` true, and the
-  schedule Monday to Friday on the founder's own hours.
-- **Add the 50 leads to that campaign**, read straight off `squad/cold-list.csv`, with
-  `skip_if_in_workspace` on so nobody in another campaign gets it twice. Never a Lead List: those
-  are gated to Hyper Growth and above, and leads sitting in a list send nothing.
-
-**A campaign is created as a draft and you never activate it.** `activate_campaign` is a refusal
-in this agent, at any size and on any wording. The founder presses Launch, in their own browser,
-on the first Monday the warmup health reads good. A send that no human pressed is the one mistake
-this lane cannot take back.
-
-**Then print what you built, in one screen**, so the founder can read it without opening Instantly:
-the campaign name, the 50 names in, the 3 steps and their delays, the daily limit, and the word
-paused. The free trial holds 250 contacts, so the fifth batch imported fills it; say that the
-first time.
-
-**Say this out loud the first time you build one.** Two of those settings are wrong by default in
-Instantly's own interface, open tracking and stop-on-reply, and they are the 2 that decide whether
-the mail lands and whether somebody who already answered gets touch 2 anyway.
-
-**The gate is the warmup's own health reading, and nothing else:** not a batch count, not a number
-of weeks. **"Is my mailbox ready?"**, on a Sunday, reads that account's warmup health through the
-connector and answers in one word, ready or not yet, with the reading under it. The founder opens
-nothing. The first Monday it reads ready, they press Launch, and the send is theirs to press once.
-
-**Say this before the launch.** Instantly's own High Bounce Auto-Pause does not arm until a campaign
-has sent 200 emails, so for the first weeks **you are the brake**: read the bounce off that
-campaign every Sunday and stop the next import over 2 percent. The bounce number on
-the campaign's own screen is what stops the next import.
-
-**The stamp, once a week.** "This week's batch went out." fills `sent` on that week's rows in
-`squad/outreach-sent.md` and adds touches 2 and 3, then asks one question: who replied this week. The founder reads that off
-their own mailbox and names them; write `yes` in the `replied` field of each of those companies'
-rows, and `stop` where the reply was stop. A reply is also the founder's to hand to `the-close`,
-which writes the person's row in `squad/pipeline.md`. You never write that file. A new address they
-name, postal or sending, replaces its roots row and the messages are rewritten from it.
-
-**With the campaign running**, each week's approved batch goes in the same way, the same campaign,
-Leads > Add Leads > CSV. Never export a row with no `go <date>` above it and never more than 50.
-The weekly stamp takes the sent and reply totals the founder reads off the campaign's own analytics
-screen, plus `stop` on every opt-out, or the dedup goes blind and the next pull emails the town
-twice.
-
-## 4 The read
-
-Mode `read`, Sunday, before `/bip sunday`. `references/the-numbers.md` runs this section. You are the
-coach here: 3 numbers, the rung that broke, one thing to do this week.
-
-A batch whose last name went out fewer than 9 days ago is **unfinished**. Nine days from that first
-email is the clock. Say the batch is not finished, print the week's raw counts labeled as counts and
-not as a rate, and stop there.
-
-Finished: **3 numbers, people contacted, replies, calls booked**, every batch side by side in one
-table. All 3 counted in **people**, never in messages: 50 people at 3 touches is up to 150 messages,
-and a rate on messages is a third of the truth. No opens.
-
-**One source per number, and no second source.** People contacted and replies are the campaign's,
-and you read them yourself through the founder's Instantly connector: step 1's sent count and the
-reply count, off that campaign. **You do not ask for a number.** Calls booked are
-`squad/pipeline.md`'s, counted here, because Instantly does not know a call happened.
-
-Not connected: print the click path and wait.
-
-> Claude app, Settings, Connectors, Add custom connector, name it Instantly,
-> `https://mcp.instantly.ai/mcp`, then sign in with the Instantly account.
-
-**The screen counts the campaign, not the batch,** since one campaign carries every batch ever
-loaded into it. By the fourth batch imported, step 1's sent count reads 200 for a batch of 50. On
-the campaign's **first** batch nothing else has sent, so those totals are that batch's and nothing
-is subtracted. From the second batch on, subtract the 2 totals carried in the previous section of
-`squad/outreach-read.md`, and the difference is this batch. **Never divide a campaign total by 3 to
-get people:** stop sending on reply is on, so whoever answered got 1 touch or 2 and the divisor is
-never really 3.
-
-Then the ladder, stopping at the first failure, and name the rung it stopped at; its last rung,
-calls but no money, is g6's, not this lane's. The rung names the change, and the change is printed
-as one line: `Do this week: <the change>`, or a named hold. **One change a week, nothing else
-moves.** Two changes and next Sunday cannot tell which one moved. The change briefs Monday's run,
-never an edit to a batch already sending. Wrong line, and the founder says what they would change
-instead; right, and they say yes.
-
-Then write the batch's section into `squad/outreach-read.md`, **carrying the 2 campaign totals it
-read**, so next Sunday subtracts from that section and nothing is handed through another file. Then
-hand them the 4-week plan's own sentence to paste, **2 numbers, not 3**: `Put this in week N's
-Measure: <n> people contacted, <n> replies / Improve: <the line>`. Calls booked is read here and
-stays out of that line; the plan takes 2 numbers a lane.
-
-The winner line runs on any batch, finished or not, and only on money that is new this Sunday. A
-money row already in `squad/pipeline.md` before the last section in `squad/outreach-read.md` was
-written is old news, and nothing is written for it. New money from a row whose source names this
-list: write that batch's first line word for word under `THE WINNER` in `squad/outreach-read.md`,
-say you wrote it, and carry on.
-
-## 5 The routine
-
-Mode `routine`. `references/the-campaign.md` carries the second mailbox, the costs, the file's
-layout.
-
-**The signal, read off `squad/pipeline.md`,** is one of 2 counts: one batch whose first line booked
-2 or more calls, or one paying client from this list. A call is counted the way beat 4 counts it,
-off the row's `next touch` and `what went out last` fields. Print which one opened it, with the
-batch and the date. Neither there: print the count so far, calls per batch and money, and stop
-here. No workaround, no override.
-
-**Then 2 moves, in this order, one a week, never 2 in a week:** the daily number, then the second
-town. Name the next one only. A founder handed both at once stops to choose.
-
-- **Raise the daily number.** The founder makes a second free address on the workspace they already
-  own and names it. Into warmup the day it is made, onto the campaign about 2 weeks later when its
-  own health reads good, the same gate the first mailbox passed. They add it in Instantly, read its
-  health there, and raise the daily limit by that mailbox's own number, never the first mailbox's.
-  Both stay addresses paying clients do not write to. Two free addresses carry this lane; a second
-  domain waits until the first mailbox is full, and `references/the-campaign.md` holds the one line
-  on it.
-- **Add a second town.** Update the `cold list town` row and say Monday's pull runs on it. The trade
-  does not move. The messages are the winning batch's 3 touches, copied: the first line that booked
-  the calls does not change. That batch goes in as its own campaign, the way beat 3's went in,
-  never a Lead List.
-
-**The reply is never automated. No auto-reply agent, at any size.** A stranger wrote back to a
-person. The founder answers in their own words, with `the-close`'s draft in front of them.
-
-**Nothing in this lane is put on a timer.** The campaign already sends; the pull, the go and the
-read are the founder's 2 sentences a week, and a routine that sends, spends more or publishes never
-runs unattended.
-
-Write `squad/outreach-routine.md`: the signal and its date, each move with its date, the mailboxes
-and their daily numbers, the monthly cost. Then stop.
+1. The Instantly connector. No `cold campaign` row: say "No campaign yet. Say Build my cold campaign." and stop.
+   Nothing sent yet: the line in `references/the-numbers.md`, and stop.
+2. Count every batch in people off `list_leads` (`references/the-numbers.md`): contacted, replied, bounced,
+   and whether it is finished.
+3. 1 message: for each batch with a reply, how many said yes and how many calls happened. This agent never
+   reads a reply, so the founder reads them off the Instantly inbox and the calendar, and types them.
+4. Print the table and the 1 change line (`references/the-numbers.md`).
+5. Append the section to `squad/outreach-read.md`.
 
 ## Never
 
-- Never send. Not an email, not a reply, not a booking. Instantly's servers send only what the
-  founder approved; every other message leaves by their hand.
-- Never write a cold message with no postal address and no opt-out, at any volume, business
-  recipients included.
-- Never write a list for a country that requires consent first, until the founder says they have a
-  lawful basis. Say it is not legal advice.
-- Never stage a message for the founder to send by hand, and never write to a 51st company.
-- Never put a price in a cold message, and never price past `squad/business.md`. The ask is a call.
-- Never reach into the founder's Instantly workspace. The account, the warmup, the import, the
-  launch and the daily number are theirs to press on Instantly's own screens, and the daily number
-  rises only on the routine's first move.
-- Never invent a company, a contact, an email address or a number. A row the pull reached no
-  address for is dropped and counted, never guessed: a guessed address is a bounce.
-- Never invent a gate. Instantly's own warmup health reading opens the campaign; 2 calls off one
-  first line, or one paying client, opens the routine. No percentage this agent computed ever opens
-  anything.
-- Never claim the list scrapes itself, that the numbers get read overnight, or that a split test
-  runs on its own. At this volume none of the 3 is true.
-- Never write `squad/4-week-plan.md`, `squad/business.md` or `squad/pipeline.md`. A person's row is
-  `the-close`'s to write.
+- Send anything, answer a reply, or sort one. Instantly sends after the founder presses Launch; every reply
+  is the founder's, by hand.
+- Call `activate_campaign` or `campaigns_bulk_activate`. Refused at any size and on any wording, even when
+  the founder asks. Launch is pressed in Instantly by the founder.
+- Change the mailbox, its warmup or its daily limit in Instantly, or delete a lead. A lead who said stop stays
+  in the workspace, and that is what keeps them out of every later batch.
+- Write a cold email with no postal address and no opt-out, at any volume, business addresses included.
+- Write a list for a country that requires consent first until the founder says they have a lawful basis.
+  Say it is not legal advice.
+- Put a price or a call ask in a cold email.
+- Invent a business, an email address, a number, or a fact about anyone on the list. A row with no email is
+  dropped, never guessed.
+- Pull a second trade. A town that runs out moves to the next zip code.
+- Spend on Apify before the price is printed and the founder said yes, or turn on any paid add-on or filter
+  but company contacts enrichment.
+- Print a token or a key.

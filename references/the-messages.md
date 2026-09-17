@@ -1,129 +1,108 @@
-# The messages
+# The 3 emails
 
-Beat 2's cage and beat 3's files. Three touches, one voice, a footer on every one.
+Day 1 offers 1 free thing and asks for a yes. Day 4 gives 1 new reason. Day 9 closes the door.
+They go into the campaign as its 3 steps, and nowhere else.
 
-## The master email
+## The law
 
-- **Under 80 words.** A stranger reads the first line and the last line. Everything between them
-  is on trial.
-- **The first line is that row's own review count and town**, merged off the CSV as `{{Reviews}}`
-  and `{{City}}`: "You have 318 Google reviews in Austin." It is the one fact the pull knows about
-  that business and about nobody else on the list, and it says you looked. Not a compliment, not an
-  introduction, not "I came across your website", and never a guess about what is wrong with them.
-- **One ask, answerable yes or no, and the ask is 20 minutes on a call.** "Got 20 minutes this week
-  for me to show you the fix on a call?" is a yes or a no. "Would you be open to a quick chat about
-  your online presence?" is homework. The email's only job is the call; it never sells.
-- **Twenty minutes needs a 20-minute door.** The cal.com link g6 made carries a 60-minute event
-  type. Say once that the founder adds a 20-minute event type to that same link, and that the reply
-  sends that one. A stranger who agreed to 20 minutes and lands on an hour books nothing.
-- **No price.** The price belongs to the call, and the call belongs to `the-close`.
-- **No attachment, no image, no tracking pixel.** Plain text, sent from a real mailbox.
-- **The founder's own words.** A line the founder could not say out loud on a call does not go in.
+- Built off `squad/business.md` only: THE SHAPE, THE SENTENCE, THE PROBLEM, BUYER WORDS. Nothing invented
+  about any business on the list.
+- Day 1 under 80 words, the footer not counted.
+- No price. No call ask. No link, no attachment, no image.
+- The only merge fields are `{{Reviews}}` and `{{City}}`, spelled with that case. They match the lead's
+  custom variables, and `{{reviews}}` merges nothing.
+- The problem is said about businesses like theirs, never as a fact about this one. A scrape cannot see what
+  a business needs.
+- Never a moment the founder did not have ("a dentist told me last week"), and never a crowd made out of 1
+  source ("some dentists say", "owners tell me"). 1 BUYER WORDS line is 1 person, so say the problem itself.
+- The founder's plain words, the way the voice sample in `.claude/squad-roots.md` talks. Numerals. No em dash.
+- Never a bump: "just following up", "bumping this", "did you see my last email".
 
-## The 3 touches
+## The free thing, off THE SHAPE
 
-| Touch | Day | What it carries |
+It is what `/the-demo` builds for a real business. The ask names it in plain words.
+
+| THE SHAPE | What /the-demo builds | The free thing, said in the email |
 |---|---|---|
-| 1 | day 1 | their review count and town, the one ask |
-| 2 | day 4 | something the first one did not say: a second thing seen, or what the fix looked like for someone else |
-| 3 | day 9 | the shortest one. One line, one door, and the door closes politely |
+| website | 1 phone-first homepage with their real details | a free demo of a new homepage |
+| content | a small set of posts and 1 short video in their look | a free set of posts and a short video in your look |
+| consulting program | a board of the program's stages with this week's action | a free plan of your first 4 weeks with me, stage by stage |
+| software | 3 clickable screens of the tool | a free clickable demo of <the tool in 2 to 4 words, off THE SENTENCE> |
 
-In the campaign those 3 messages run as 3 steps, 3 days to step 2 and 5 days to step 3, so the
-days they land on are the days they are named for.
+The subject is the free thing in 2 to 5 words, lowercase except AI, and it keeps the tool's name whole: "a free homepage demo", "a free AI receptionist demo".
 
-**Never a bump.** "Just following up", "bumping this up your inbox", "did you see my last email" are
-messages about the founder. Each touch earns its own send or it does not go.
+## The templates
 
-Two lines on openers, and that is the whole of it: **do not open with yourself** ("I'm X and I help
-Y do Z"), and **do not open with a question they have answered 40 times this month** ("Are you
-happy with your current website?"). 58% of replies come from touch 1, so the first line is where the
-work goes.
+`<founder first name>` and `<founder name>` come off the `founder name` row. `<postal address>` off the
+`postal address` row.
 
-## The footer, on all 3, no exceptions
+**Day 1** · step 1 · wait 3 days
 
 ```
-<Founder name> · <business name>
+Subject: <the free thing, 2 to 5 words>
+
+You have {{Reviews}} Google reviews in {{City}}.
+
+<1 plain line off THE PROBLEM, about businesses like theirs, naming the part THE SENTENCE fixes (for an AI receptionist, the phones), under 25 words. A line that only describes their day, with no pain in it, is not a problem line. THE PROBLEM holds no pain (a need or advice): write what a business like theirs loses without the part THE SENTENCE fixes, in plain words, with no number and no "most" (the call goes to the next dentist), never a vague cost like "gets in the way".>
+
+Would it be okay if I made you <the free thing>? Just say yes.
+
+<founder first name>
+
+<founder name>
 <postal address>
-Not useful? Reply "stop" and I will not write again.
+Not useful? Reply "stop" and I won't write again.
 ```
 
-**This is a refusal.** CAN-SPAM has no volume threshold and, in the FTC's own words, "The law
-makes no exception for business-to-business email." Every commercial message needs a valid
-physical postal address and a clear opt-out that is easy to see, honoured within 10 business
-days, and each message in violation runs up to $53,088. Say that once, in one line, the first
-time the founder sees the footer.
-
-No `postal address` row in the roots file: ask once. If the founder will not give one, write no
-message and say why in one line. A mailbox service or a registered business address is fine; a
-made-up address is worse than none.
-
-**Both addresses are asked here, in one message.** The postal address, where the `postal address`
-row is missing, since it goes under all 3. And the sending address: ask which mailbox these go out
-of, once, here, and **the answer is a second free address on the
-workspace the founder already owns**, never the address paying clients reply to and never the
-mailbox they read every day. A founder with no clients today lands one off this lane in week 3, and
-that client then writes back to whatever address the cold mail left from. Beat 3 will not build a
-campaign on an address the founder has not named, so an unanswered row here stops the send. When
-Gmail flags that mailbox, a second free Gmail replaces it in the row and its own warmup starts.
-
-**The opt-out has to work.** An address that replies "stop" gets marked `stop` in
-`squad/outreach-sent.md`, and beat 1's dedup drops it from every future list. That mark is the whole
-mechanism, so never write a row without it.
-
-## The batch's message file
-
-`squad/cold-messages-<the batch's go date>.md`, written by beat 2 on the founder's word, for every
-batch, whether or not a mail connector exists:
+**Day 4** · step 2 · subject empty · wait 5 days
 
 ```
-# Cold messages · batch <go date>
+<1 new reason: the problem the way buyers put it, off a BUYER WORDS line day 1 did not quote, said about businesses like theirs and never with "your" (a scrape cannot see his trucks, his staff or his site). Never say who says it: the problem itself ("The work isn't the hard part. Finding it is."), not "some owners say". A line whose source is a seller's own page is not a buyer's words, and a line with no pain in it (advice, a to-do list, a description of the day) is not a reason. No such line left: a cost of THE PROBLEM that day 1 did not name, in new plain words, with no number and no "most".>
 
-## Touch 1 · day 1
-Subject: ...
-<body with {{Reviews}} and {{City}} left as the merge fields, footer included>
+I'd make your <the subject without its first word> with your real details, so you see it before you decide anything. Just say yes.
 
-## Touch 2 · day 4
-## Touch 3 · day 9
+<founder first name>
+
+<founder name>
+<postal address>
+Not useful? Reply "stop" and I won't write again.
 ```
 
-The founder builds the campaign's 3 steps out of this file, pasted, while the mailbox warms. The
-resume rule reads this file to know beat 2 finished, so a batch without one gets its messages
-written again from the top rather than half-remembered.
-
-## Nothing leaves by hand
-
-No drafts, no mail connector. Every message on this lane leaves from the campaign, which is what
-keeps the postal address and the opt-out on all 3 touches and threads touch 2 and touch 3 onto the
-first. A day 4 that arrives as its own new message reads as a stranger writing twice, and that is
-the message people mark as spam.
-
-## The log
-
-`squad/outreach-sent.md`, this agent's own memory. **One row per company per touch.** Touch 1's
-rows are written at the go, `sent` empty; the weekly stamp fills `sent` and adds touches 2 and 3,
-because nothing else on disk says which names entered on which day and the 9-day clock is counted
-off those dates. The founder confirms once a week, never once a day:
+**Day 9** · step 3 · subject empty · wait 0
 
 ```
-# Outreach sent
+Last note from me. If <the subject> would help, just say yes.
 
-batch · company · touch · sent · replied
+<founder first name>
 
-2026-09-07 · Verdant Med Spa · 1 · 2026-09-08 · yes
-2026-09-07 · Verdant Med Spa · 2 · 2026-09-11 ·
-2026-09-07 · Lumen Aesthetics · 1 · 2026-09-08 ·
+<founder name>
+<postal address>
+Not useful? Reply "stop" and I won't write again.
 ```
 
-`batch` is the list's go date. `sent` stays empty until the founder says the week went out.
-`replied` holds `yes`, or `stop` where the reply was stop, and nothing else. It is written at that
-same weekly stamp, off the founder's own answer to one question, who replied this week: it is what
-marks the opt-outs, and nothing else on disk carries it. A batch is **finished** 9 days after the
-last name in it got touch 1, with all 3 touches sent on every row.
-This file is the source of truth for which batch is finished, and it is the file every future pull
-dedups against, on the company name. Once the campaign sends, Sunday's
-stamp writes one row per week carrying the 2 totals the founder read off the campaign's own screen,
-so the next Sunday has something to subtract from.
+The empty subject threads days 4 and 9 under day 1, so they read as 1 conversation.
 
-It holds names, not people. The day one of them replies or takes a call, the founder hands that to
-`the-close`, and that agent writes the person's row in `squad/pipeline.md`. Nothing here writes
-that file.
+## The footer, on all 3
+
+No `postal address` row, or a row without its town, state and zip code: ask for it once, with this line.
+
+```
+Your postal address goes under every email. US law (CAN-SPAM) requires a real postal address and a working opt-out on every commercial email, business to business included, up to $53,088 for each email that breaks it. A P.O. box or a mailbox service works. A home address goes out on every email you send.
+```
+
+No address given, or one without its town, state and zip code (its postal code outside the US), like "PO Box 123": write no row and no email, say why in 1 line, and ask for the whole address. Never fill in a town, state or zip code for the founder, not even as an example. A made-up address is worse than none.
+
+The opt-out works this way: a reply stops that lead's emails (stop on reply is on), the lead stays in the
+Instantly workspace, and `skip_if_in_workspace` keeps them out of every later batch. The law gives 10
+business days to honor it.
+
+## A change from the Sunday read
+
+Only day 1 changes. Days 4 and 9 stay as they are.
+
+- `Change: a new problem line in day 1.` Write the problem line off a BUYER WORDS line neither day 1 nor day 4
+  has used.
+- `Change: a smaller free thing in day 1.` Offer the smallest piece of the free thing the demo still shows,
+  and change the subject to match.
+
+Print day 1 whole, then "Change any word, or say yes."
